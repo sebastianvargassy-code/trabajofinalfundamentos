@@ -1,60 +1,9 @@
-from flask import Flask, render_template_string, redirect, url_for, request
+from flask import Flask, render_template_string, redirect, url_for
+
+
 app = Flask(__name__)
-USUARIO_CORRECTO = "Sebastian"
-PASSWORD_CORRECTO = "1234"
 
 
-# Contador de intentos
-intentos = 0
-
-
-# Página principal (Login)
-login_html = """
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Inicio de Sesión</h1>
-    <form method="POST">
-        <label>Usuario:</label>
-        <input type="text" name="usuario" required>
-        <br><br>
-        <label>Contraseña:</label>
-        <input type="password" name="password" required>
-        <br><br>
-        <label for="tipo_usuario">Rol:</label>
-        <select id="tipo_usuario" name="tipo_usuario">
-            <option value="usuario">Usuario</option>
-            <option value="admin">Administrador</option>
-        </select>
-        <br><br>
-        <button type="submit">Validar</button>
-    </form>
-    <br>
-    <h3>{{ mensaje }}</h3>
-    <h4>Intentos restantes: {{ restantes }}</h4>
-</body>
-</html>
-"""
-
-
-# Página de bloqueo
-bloqueado_html = """
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
- <title>Sistema Bloqueado</title>
-</head>
-<body>
-    <h1>Sistema Bloqueado</h1>
-    <h2>Ha superado el máximo de intentos permitidos.</h2>
-</body>
-</html>
-"""
 # INDEX
 index_html = """
 <!DOCTYPE html>
@@ -163,9 +112,8 @@ nav a{
         </header>
         <main>
              <p> Minimarket Nelly siempre a sus disposición cuenta con los productos indispensables para abastecer a la comunidad </p>
-
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN-Sgy3YWNqUsjVziPRu9zKMV46mrh57sQ&s" alt="Descripción de la imagen">
-</a>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN-Sgy3YWNqUsjVziPRu9zKMV46mrh57sQ&s" alt="Descripción de la imagen">
+           
         </main>
         <footer>
             <p>&copy; 2025 Mi sitio web. Todos los derechos reservados.</p>
@@ -757,7 +705,7 @@ footer{
 """
 
 
-@app.route('/inicio')
+@app.route('/')
 def inicio():
     return render_template_string(index_html)
 
@@ -767,50 +715,6 @@ def productos():
     return render_template_string(productos_html)
 
 
-@app.route("/", methods=["GET", "POST"])
-def login():
-    global intentos
-    mensaje = ""
-    restantes = 3 - intentos
-
-
-    # Verificar si el sistema está bloqueado
-    if intentos >= 3:
-        return redirect(url_for("bloqueado"))
-
-
-    # Validar formulario
-    if request.method == "POST":
-        usuario = request.form["usuario"]
-        password = request.form["password"]
-
-
-        # Validar credenciales
-        if usuario == USUARIO_CORRECTO and password == PASSWORD_CORRECTO:
-            intentos = 0 # Reiniciar intentos al tener éxito
-            return redirect(url_for("inicio"))
-        else:
-            intentos += 1
-            restantes = 3 - intentos
-            mensaje = "Usuario o contraseña incorrectos"
-
-
-            # Bloquear al tercer intento
-            if intentos >= 3:
-                return redirect(url_for("bloqueado"))
-
-
-    return render_template_string(
-        login_html,
-        mensaje=mensaje,
-        restantes=restantes
-    )
-
-
-# Ruta bloqueo
-@app.route("/bloqueado")
-def bloqueado():
-    return render_template_string(bloqueado_html)
 if __name__ == '__main__':
     app.run(debug=True)
 
