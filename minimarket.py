@@ -231,7 +231,7 @@ index_html = """
         <section class="hero">
             <div class="hero-text">
                 <h2>Siempre a tu disposición</h2>
-                <p>Contamos con los productos indispensables para abastecer a toda la comunidad. Frescura, calidad y la mejor atención a solo un clic de distancia.</p>
+                <p>Acercamos productos de calidad para su consumo en el hogar, de calidad, frescos y a precios competitivos.</p>
                 <a href="/productos" class="btn-ver-productos">Ver Productos</a>
             </div>
             <div class="hero-img-container">
@@ -243,19 +243,19 @@ index_html = """
             <h3>¿Por qué elegirnos?</h3>
             <div class="contenedor-tarjetas">
                 <div class="tarjeta">
-                    <div class="tarjeta-icono">🏪</div>
-                    <h4>Variedad Total</h4>
-                    <p>Encuentra abarrotes, bebidas, lácteos y todo lo necesario para el día a día.</p>
+                   
+                    <h4>Variedad en los productos</h4>
+                    <p>Abarrotes, snack y alimentos del día a día</p>
                 </div>
                 <div class="tarjeta">
-                    <div class="tarjeta-icono">🍎</div>
-                    <h4>Frescura Garantizada</h4>
-                    <p>Seleccionamos cuidadosamente cada producto para asegurar la mejor calidad en tu mesa.</p>
+                 
+                    <h4>Productos frescos</h4>
+                    <p>Renovación constante del stock.</p>
                 </div>
                 <div class="tarjeta">
-                    <div class="tarjeta-icono">🤝</div>
-                    <h4>Atención Local</h4>
-                    <p>Orgullosos de servir y apoyar a nuestra comunidad con amabilidad y respeto.</p>
+                 
+                    <h4>Buena atención</h4>
+                    <p>Basada en el respeto.</p>
                 </div>
             </div>
         </section>
