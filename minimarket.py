@@ -271,100 +271,258 @@ productos_html = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artesanías de Chulucanas</title>
-    <style>
-    header{
-
-    text-align: center;
-    border-bottom: 1px solid;
-    background-color: lightsalmon;
+    <title>Minimarket Nelly - Productos</title>
+   <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-header h1{
- font-size: 43pt;
-
+/* Botón flotante para mostrar/ocultar el carrito */
+.btn-toggle-carrito {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    background-color: #b6926f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background-color 0.2s;
 }
-body{
-
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: beige;
-
+.btn-toggle-carrito:hover {
+    background-color: #6d4b2a;
 }
-.contenedor
-{max-width: 90%;
-    padding: 0 20px;
-margin:40px auto;}
-/*grilla malla de 3 columnas*/
-.malla-productos{
 
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+.carrito-flotante.oculto {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .carrito-flotante {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        height: 100vh;
+        z-index: 999;
+        overflow-y: auto;
+        border-radius: 0;
+        box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s ease;
+    }
+    .carrito-flotante.oculto {
+        display: block;
+        transform: translateX(100%);
+    }
+}
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 30px auto;
+    display: flex; 
     gap: 30px;
 }
 
-.imagen-producto{
-    width: 200px;
-    height: 150px;
-    
+.malla-productos {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Bajamos a 4 para que entre el carrito */
+    gap: 15px;
 }
-.tarjeta-producto
-{
+
+.carrito-flotante {
+    flex: 1;
     background-color: white;
-    border: 1px solid #aeeade;
-    border-radius: 8px;
+    border: 1px solid #e2f3f0;
+    border-radius: 12px;
+    padding: 20px;
+    height: fit-content;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 20px;
+}
+
+.carrito-flotante h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid lightsalmon;
+}
+
+.item-carrito {
     display: flex;
-    flex-direction: column;
-   padding: 5px;
-   align-items: center;
-}
-.info-producto
-{
-    display: flex;
-    flex-direction:column;
-
-}
-.info-producto h3{
-    font-size: 14pt;
-}
-.info-producto p{
-    font-size: 10pt;
-    color:#5a4a40;
-    flex-grow: 1;
-
-}
-.compra-producto{
-
-    display:"flex";
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
 }
-.precio{
-    font-size: 15pt;
-    font-weight: bold;
-    color: black;
+
+.item-carrito p {
+    color: #6a5a50;
+    font-size: 12px;
 }
-.boton-compra{
-    background-color: #8c6239;
-    color:white;
-    padding: 8px 20px;
-    font-size:9pt;
-    border-radius:4px;
+
+.total-carrito {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
 }
-.boton-compra:hover{
-    background-color:#6d4b2a
-}
-footer{
 
-
-
-
+.btn-vaciar {
+    display: block;
     text-align: center;
-    font-size: 9pt;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f5f0; 
+    color: #333;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(160, 113, 95);
+    padding: 30px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+header h1 {
+    font-size: 32px; 
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%; 
+    margin: 30px auto;
+}
+
+.malla-productos {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(150px, 1fr)); 
+    gap: 15px; 
+}
+
+.tarjeta-producto {
+    background-color: white;
+    border: 1px solid #9b8360;
+    border-radius: 8px; 
+    display: flex;
+    flex-direction: column;
+    padding: 10px; 
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.imagen-producto {
+    width: 100%;
+    height: 120px;
+    object-fit: cover; 
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1; 
+}
+
+.info-producto h3 {
+    font-size: 15px; 
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.info-producto p {
+    font-size: 12px; 
+    color: #6a5a50;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+.compra-producto {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; 
+    width: 100%;
+}
+
+.precio {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+}
+
+.boton-compra {
+    background-color: #b6926f;
+    color: white;
+    padding: 6px 12px;
+    font-size: 11px; 
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-compra:hover {
+    background-color: #6d4b2a;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
     background-color: #5a4a40;
     color: white;
-    padding: 10px 0px;    
+    padding: 15px 0;
+    margin-top: 40px;
 }
-    </style>
 
+
+@media (max-width: 1024px) {
+    .malla-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .malla-productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .imagen-producto {
+        height: 100px; 
+    }
+}
+</style>
 </head>
 <body>
 
@@ -378,11 +536,14 @@ footer{
 
 
     <main class="contenedor">
+         <h4>Comestibles</h4><br>
         <section class="malla-productos">
+           
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i1.webp" alt="i1">
+
+                <img class="imagen-producto" src="./img/i1.jpg" alt="i1">
                 <div class="info-producto">
                     <h3>Galleta soda</h3>
                     <p>6 unidades (222 gr)</p>
@@ -393,7 +554,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i2.png" alt="i2">
+                <img class="imagen-producto" src="./img/i2.jpg" alt="i2">
                 <div class="info-producto">
                     <h3>Coca Cola</h3>
                     <p>500 ml</p>
@@ -415,7 +576,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i4.webp" alt="i4">
+                <img class="imagen-producto" src="./img/i4.jpg" alt="i4">
                 <div class="info-producto">
                     <h3>Yogurt Laive</h3>
                     <p>1000 gr</p>
@@ -426,7 +587,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i5.png" alt="i5">
+                <img class="imagen-producto" src="./img/i5.jpg" alt="i5">
                 <div class="info-producto">
                     <h3>Pan en bolsa</h3>
                     <p>500 gr</p>
@@ -448,7 +609,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i7.webp" alt="i7">
+                <img class="imagen-producto" src="./img/i7.jpg" alt="i7">
                 <div class="info-producto">
                     <h3>Atún en lata</h3>
                     <p>140 gr</p>
@@ -459,7 +620,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i8.png" alt="i8">
+                <img class="imagen-producto" src="./img/i8.jpg" alt="i8">
                 <div class="info-producto">
                     <h3>Café Kirma</h3>
                     <p>180 gr</p>
@@ -481,7 +642,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i10.webp" alt="i10">
+                <img class="imagen-producto" src="./img/i10.jpg" alt="i10">
                 <div class="info-producto">
                     <h3>Chocolate Triangulo</h3>
                     <p>30 gr</p>
@@ -492,7 +653,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i11.png" alt="i11">
+                <img class="imagen-producto" src="./img/i11.jpg" alt="i11">
                 <div class="info-producto">
                     <h3>Gaseosa KR</h3>
                     <p>1500 ml</p>
@@ -514,7 +675,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i13.webp" alt="i13">
+                <img class="imagen-producto" src="./img/i13.jpg" alt="i13">
                 <div class="info-producto">
                     <h3>Galletas oreo</h3>
                     <p>432 gr</p>
@@ -525,7 +686,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i14.png" alt="i14">
+                <img class="imagen-producto" src="./img/i14.jpg" alt="i14">
                 <div class="info-producto">
                     <h3>Mayonesa</h3>
                     <p>190 gr</p>
@@ -547,7 +708,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i16.webp" alt="i16">
+                <img class="imagen-producto" src="./img/i16.jpg" alt="i16">
                 <div class="info-producto">
                     <h3>Jamón San Fernando</h3>
                     <p>200 gr</p>
@@ -558,7 +719,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i17.png" alt="i17">
+                <img class="imagen-producto" src="./img/i17.jpg" alt="i17">
                 <div class="info-producto">
                     <h3>Margarina Manti</h3>
                     <p>225 gr</p>
@@ -579,7 +740,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i19.webp" alt="i19">
+                <img class="imagen-producto" src="./img/i19.jpg" alt="i19">
                 <div class="info-producto">
                     <h3>Café Ecco</h3>
                     <p>80 gr</p>
@@ -590,7 +751,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i20.png" alt="i20">
+                <img class="imagen-producto" src="./img/i20.jpg" alt="i20">
                 <div class="info-producto">
                     <h3>Café Altomayo</h3>
                     <p>170 gr</p>
@@ -601,7 +762,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i21.png" alt="i21">
+                <img class="imagen-producto" src="./img/i21.jpg" alt="i21">
                 <div class="info-producto">
                     <h3>Leche Fresca Gloria</h3>
                     <p>946 ml</p>
@@ -612,7 +773,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i22.png" alt="i22">
+                <img class="imagen-producto" src="./img/i22.jpg" alt="i22">
                 <div class="info-producto">
                     <h3>Leche sin lactosa Laive</h3>
                     <p>1000 ml</p>
@@ -623,7 +784,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i23.png" alt="i23">
+                <img class="imagen-producto" src="./img/i23.jpg" alt="i23">
                 <div class="info-producto">
                     <h3>Duraznos en almibar</h3>
                     <p>820 gr</p>
@@ -634,7 +795,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i24.png" alt="i24">
+                <img class="imagen-producto" src="./img/i24.jpg" alt="i24">
                 <div class="info-producto">
                     <h3>Gaseosa Guarana</h3>
                     <p>450 ml</p>
@@ -645,7 +806,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i25.png" alt="i25">
+                <img class="imagen-producto" src="./img/i25.jpg" alt="i25">
                 <div class="info-producto">
                     <h3>Pan Chabata</h3>
                     <p>6 unidades</p>
@@ -656,7 +817,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i26.png" alt="i26">
+                <img class="imagen-producto" src="./img/i26.jpg" alt="i26">
                 <div class="info-producto">
                     <h3>Pan caracol</h3>
                     <p>6 unidades</p>
@@ -667,7 +828,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i27.png" alt="i27">
+                <img class="imagen-producto" src="./img/i27.jpg" alt="i27">
                 <div class="info-producto">
                     <h3>Pan Francés</h3>
                     <p>6 unidades</p>
@@ -678,7 +839,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i28.png" alt="i28">
+                <img class="imagen-producto" src="./img/i28.jpg" alt="i28">
                 <div class="info-producto">
                     <h3>Gaseosa Concordia</h3>
                     <p>1500 ml</p>
@@ -689,7 +850,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i29.png" alt="i29">
+                <img class="imagen-producto" src="./img/i29.jpg" alt="i29">
                 <div class="info-producto">
                     <h3>Cifrut</h3>
                     <p>500 ml</p>
@@ -700,7 +861,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i30.png" alt="i30">
+                <img class="imagen-producto" src="./img/i30.jpg" alt="i30">
                 <div class="info-producto">
                     <h3>Pulp</h3>
                     <p>1000 ml</p>
@@ -711,7 +872,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i31.png" alt="i31">
+                <img class="imagen-producto" src="./img/i31.jpg" alt="i31">
                 <div class="info-producto">
                     <h3>Yopimix</h3>
                     <p>125 gr</p>
@@ -722,7 +883,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i32.png" alt="i32">
+                <img class="imagen-producto" src="./img/i32.jpg" alt="i32">
                 <div class="info-producto">
                     <h3>Helado de vainilla</h3>
                     <p>1000 ml</p>
@@ -733,7 +894,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i33.png" alt="i33">
+                <img class="imagen-producto" src="./img/i33.jpg" alt="i33">
                 <div class="info-producto">
                     <h3>Helado de fresa</h3>
                     <p>1000 ml</p>
@@ -744,7 +905,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i34.png" alt="i34">
+                <img class="imagen-producto" src="./img/i34.jpg" alt="i34">
                 <div class="info-producto">
                     <h3>Queso Chedar</h3>
                     <p>170 gr</p>
@@ -755,7 +916,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i35.png" alt="i35">
+                <img class="imagen-producto" src="./img/i35.jpg" alt="i35">
                 <div class="info-producto">
                     <h3>Chocolate Vizio</h3>
                     <p>63 gr</p>
@@ -766,7 +927,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i36.png" alt="i36">
+                <img class="imagen-producto" src="./img/i36.jpg" alt="i36">
                 <div class="info-producto">
                     <h3>Galleta rellenitas</h3>
                     <p>6 unidades</p>
@@ -777,7 +938,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i37.png" alt="i37">
+                <img class="imagen-producto" src="./img/i37.jpg" alt="i37">
                 <div class="info-producto">
                     <h3>Cereales Angel Chocolate</h3>
                     <p>250 gr</p>
@@ -788,7 +949,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i38.png" alt="i38">
+                <img class="imagen-producto" src="./img/i38.jpg" alt="i38">
                 <div class="info-producto">
                     <h3>Cereales Angel Maiz</h3>
                     <p>1000 gr</p>
@@ -799,7 +960,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i39.png" alt="i39">
+                <img class="imagen-producto" src="./img/i39.jpg" alt="i39">
                 <div class="info-producto">
                     <h3>Avena</h3>
                     <p>900 gr</p>
@@ -810,7 +971,7 @@ footer{
 
 
             <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i40.png" alt="i40">
+                <img class="imagen-producto" src="./img/i40.jpg" alt="i40">
                 <div class="info-producto">
                     <h3>Chicle trident</h3>
                     <p>5 unidades</p>
@@ -818,8 +979,17 @@ footer{
                 <span class="precio">S/.1.50</span>
                 <a href="#" class="boton-compra">Añadir</a>
             </article>
-            <aside class="carrito-flotante">
-    <h2> Tu Carrito</h2>
+
+
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; Todos los derechos reservados 2026</p>
+    </footer>
+    <aside class="carrito-flotante">
+    <h2>Tu Carrito</h2>
     
     {% if session.get('carrito') %}
         <div class="lista-carrito">
@@ -844,18 +1014,9 @@ footer{
     {% endif %}
 </aside>
 
-
-        </section>
-    </main>
-
-
-    <footer>
-        <p>&copy; Todos los derechos reservados 2026</p>
-    </footer>
-
-
 </body>
 </html>
+
 """
 
 @app.route('/')
