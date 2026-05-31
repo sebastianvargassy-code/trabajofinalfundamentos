@@ -1,132 +1,275 @@
 from flask import Flask, render_template_string, redirect, url_for
 
-
 app = Flask(__name__)
 
-
-# INDEX
+# INDEX REDISEÑADO (Solo modifiqué este bloque)
 index_html = """
 <!DOCTYPE html>
-    <html lang="es">
-    <head>
-   
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,
-    initial-scale=1.0">
-    <title>Minimarket </title>
-    <link rel="stylesheet" href="css/styles.css">
-    </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimarket Nelly</title>
     <style>
-    *{
-    margin: 0;
-   
-    box-sizing: border-box;
-}
-body{
-    font-family: Arial, sans-serif;
-    background-color:#d4c196;
-    color:#000000;
-    padding: 20px;
-}
-h1, h2{
+        /* Reseteo y Fuentes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background-color: #f7f5f0;
+            color: #333333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vi;
+        }
 
-    color: #d4c196;
+        /* Header y Navegación */
+        header {
+            background-color: #5a3907;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
+        header h1 {
+            color: #d4c196;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-}
-header{
-display: flex;
-justify-content: space-between;
-align-items: center;
-background-color: #5a3907;
-color: rgb(255, 254, 254);
-padding: 15px 20px;
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
 
+        nav a {
+            color: #f7f5f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-}
-nav ul{
+        nav a:hover, nav li:first-child a {
+            color: #d4c196;
+        }
 
+        /* Sección Hero (Bienvenida) */
+        .hero {
+            background: linear-gradient(135deg, #5a3907 0%, #362204 100%);
+            color: white;
+            padding: 60px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
 
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-nav a{
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
 
+        .hero-text h2 {
+            font-size: 36px;
+            color: #d4c196;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
 
-    color: #d4c196;
-    text-decoration: none;
-    font-weight:bold;
-}
-.contenedor-tarjetas{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 30px 0;
-}
-.tarjeta{
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #e2dcd0;
+            margin-bottom: 25px;
+        }
 
+        .btn-ver-productos {
+            display: inline-block;
+            background-color: #d4c196;
+            color: #362204;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0,0.1);
- width: 280px;
-}
-.galeria img{
+        .btn-ver-productos:hover {
+            background-color: #e5d4b1;
+            transform: translateY(-2px);
+        }
 
+        .hero-img-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-    width:100%;
-    border-radius: 8px;
+        .hero img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            object-fit: cover;
+            max-height: 300px;
+        }
 
+        /* Características / Tarjetas de Información */
+        .features {
+            padding: 50px 5%;
+            text-align: center;
+        }
 
-}
-@media screen and (max-width: 768px)
-{
+        .features h3 {
+            font-size: 28px;
+            color: #5a3907;
+            margin-bottom: 30px;
+        }
 
+        .contenedor-tarjetas {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    header{
+        .tarjeta {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 280px;
+            transition: transform 0.3s;
+            text-align: center;
+            border-top: 4px solid #5a3907;
+        }
 
+        .tarjeta:hover {
+            transform: translateY(-5px);
+        }
 
-        flex-direction: column;
-    }
-    .contenedor-tarjetas{
-        flex-direction: column;
-        align-items: center;
-    }
-}
-</style>
-    <body>
-        <header>
-            <h1>Minimarket </h1>
-            <nav>
-                <ul>
+        .tarjeta-icono {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h4 {
+            color: #5a3907;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .tarjeta p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #362204;
+            color: #a89c84;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            font-size: 14px;
+        }
+
+        /* Responsivo */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 5%;
+            }
+
+            .hero-text h2 {
+                font-size: 28px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .hero-img-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minimarket Nelly</h1>
+        <nav>
+            <ul>
                 <li><a href="#">Inicio</a></li>
-                <li><a href="http://127.0.0.1:5000/productos">Productos</a></li>                <li><a href="#">Contacto</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
                 <li><a href="#">Carrito</a></li>
-           
-                </ul>
-            </nav>
-        </header>
-        <main>
-             <p> Minimarket Nelly siempre a sus disposición cuenta con los productos indispensables para abastecer a la comunidad </p>
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN-Sgy3YWNqUsjVziPRu9zKMV46mrh57sQ&s" alt="Descripción de la imagen">
-           
-        </main>
-        <footer>
-            <p>&copy; 2025 Mi sitio web. Todos los derechos reservados.</p>
-        </footer>
-    </body>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Siempre a tu disposición</h2>
+                <p>Contamos con los productos indispensables para abastecer a toda la comunidad. Frescura, calidad y la mejor atención a solo un clic de distancia.</p>
+                <a href="/productos" class="btn-ver-productos">Ver Productos</a>
+            </div>
+            <div class="hero-img-container">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN-Sgy3YWNqUsjVziPRu9zKMV46mrh57sQ&s" alt="Interior de Minimarket Nelly">
+            </div>
+        </section>
+
+        <section class="features">
+            <h3>¿Por qué elegirnos?</h3>
+            <div class="contenedor-tarjetas">
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">🏪</div>
+                    <h4>Variedad Total</h4>
+                    <p>Encuentra abarrotes, bebidas, lácteos y todo lo necesario para el día a día.</p>
+                </div>
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">🍎</div>
+                    <h4>Frescura Garantizada</h4>
+                    <p>Seleccionamos cuidadosamente cada producto para asegurar la mejor calidad en tu mesa.</p>
+                </div>
+                <div class="tarjeta">
+                    <div class="tarjeta-icono">🤝</div>
+                    <h4>Atención Local</h4>
+                    <p>Orgullosos de servir y apoyar a nuestra comunidad con amabilidad y respeto.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Minimarket Nelly. Todos los derechos reservados.</p>
+    </footer>
+</body>
 </html>
 """
 
-
-# PRODUCTOS
+# PRODUCTOS (Exactamente igual, sin ningún cambio)
 productos_html = """
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -136,7 +279,6 @@ productos_html = """
     <style>
     header{
 
-
     text-align: center;
     border-bottom: 1px solid;
     background-color: lightsalmon;
@@ -144,14 +286,11 @@ productos_html = """
 header h1{
  font-size: 43pt;
 
-
 }
 body{
 
-
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: beige;
-
 
 }
 .contenedor
@@ -161,17 +300,15 @@ margin:40px auto;}
 /*grilla malla de 3 columnas*/
 .malla-productos{
 
-
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 30px;
 }
 
-
 .imagen-producto{
     width: 200px;
     height: 150px;
-   
+    
 }
 .tarjeta-producto
 {
@@ -188,7 +325,6 @@ margin:40px auto;}
     display: flex;
     flex-direction:column;
 
-
 }
 .info-producto h3{
     font-size: 14pt;
@@ -198,10 +334,8 @@ margin:40px auto;}
     color:#5a4a40;
     flex-grow: 1;
 
-
 }
 .compra-producto{
-
 
     display:"flex";
     justify-content: space-between;
@@ -234,7 +368,6 @@ footer{
     padding: 10px 0px;    
 }
     </style>
-
 
 </head>
 <body>
@@ -704,17 +837,13 @@ footer{
 </html>
 """
 
-
 @app.route('/')
 def inicio():
     return render_template_string(index_html)
-
 
 @app.route('/productos')
 def productos():
     return render_template_string(productos_html)
 
-
 if __name__ == '__main__':
     app.run(debug=True)
-
