@@ -37,7 +37,7 @@ index_html = """
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         header h1 {
@@ -63,9 +63,9 @@ index_html = """
             color: #d4c196;
         }
 
-        /* Sección Hero (Bienvenida) */
-        .hero {
-            background: linear-gradient(135deg, #5a3907 0%, #362204 100%);
+        /* Sección intro (Bienvenida) */
+        .intro {
+            
             color: white;
             padding: 60px 5%;
             display: flex;
@@ -74,19 +74,19 @@ index_html = """
             gap: 40px;
         }
 
-        .hero-text {
+        .intro-text {
             flex: 1;
             max-width: 600px;
         }
 
-        .hero-text h2 {
+        .intro-text h2 {
             font-size: 36px;
             color: #d4c196;
             margin-bottom: 15px;
             line-height: 1.2;
         }
 
-        .hero-text p {
+        .intro-text p {
             font-size: 18px;
             line-height: 1.6;
             color: #e2dcd0;
@@ -110,13 +110,13 @@ index_html = """
             transform: translateY(-2px);
         }
 
-        .hero-img-container {
+        .intro-img-container {
             flex: 1;
             display: flex;
             justify-content: center;
         }
 
-        .hero img {
+        .intro img {
             max-width: 100%;
             height: auto;
             border-radius: 15px;
@@ -194,21 +194,21 @@ index_html = """
                 text-align: center;
             }
 
-            .hero {
+            .intro {
                 flex-direction: column;
                 text-align: center;
                 padding: 40px 5%;
             }
 
-            .hero-text h2 {
+            .intro-text h2 {
                 font-size: 28px;
             }
 
-            .hero-text p {
+            .intro-text p {
                 font-size: 16px;
             }
 
-            .hero-img-container {
+            .intro-img-container {
                 width: 100%;
             }
         }
@@ -228,13 +228,13 @@ index_html = """
     </header>
 
     <main>
-        <section class="hero">
-            <div class="hero-text">
+        <section class="intro">
+            <div class="intro-text">
                 <h2>Siempre a tu disposición</h2>
                 <p>Acercamos productos de calidad para su consumo en el hogar, de calidad, frescos y a precios competitivos.</p>
                 <a href="/productos" class="btn-ver-productos">Ver Productos</a>
             </div>
-            <div class="hero-img-container">
+            <div class="intro-img-container">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmrN-Sgy3YWNqUsjVziPRu9zKMV46mrh57sQ&s" alt="Interior de Minimarket Nelly">
             </div>
         </section>
