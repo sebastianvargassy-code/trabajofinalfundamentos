@@ -818,6 +818,31 @@ footer{
                 <span class="precio">S/.1.50</span>
                 <a href="#" class="boton-compra">Añadir</a>
             </article>
+            <aside class="carrito-flotante">
+    <h2> Tu Carrito</h2>
+    
+    {% if session.get('carrito') %}
+        <div class="lista-carrito">
+            {% for id, item in session['carrito'].items() %}
+            <div class="item-carrito">
+                <div>
+                    <strong>{{ item.nombre }}</strong>
+                    <p>Cant: {{ item.cantidad }}</p>
+                </div>
+                <span>S/.{{ "%.2f"|format(item.precio * item.cantidad) }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="total-carrito">
+            <strong>Total: S/.{{ "%.2f"|format(total_actual) }}</strong>
+        </div>
+        
+        <a href="/limpiar" class="btn-vaciar">Vaciar Carrito</a>
+    {% else %}
+        <p class="carrito-vacio">El carrito está vacío.</p>
+    {% endif %}
+</aside>
 
 
         </section>
@@ -834,6 +859,12 @@ footer{
 """
 
 @app.route('/')
+def index():
+    carrito = session.get('carrito', {})
+    # Calculamos el total aquí para mostrarlo en el panel lateral
+    total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
+    return render_template('index.html', total_actual=total_actual)
+    
 def inicio():
     return render_template_string(index_html)
 
