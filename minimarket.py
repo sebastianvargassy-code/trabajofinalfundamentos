@@ -11,7 +11,6 @@ index_html = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minimarket Nelly</title>
     <style>
-        /* Reseteo y Fuentes */
         * {
             margin: 0;
             padding: 0;
@@ -24,7 +23,7 @@ index_html = """
             color: #333333;
             display: flex;
             flex-direction: column;
-            min-height: 100vi;
+            min-height: 100vh;
         }
 
         /* Header y Navegación */
@@ -125,7 +124,6 @@ index_html = """
             max-height: 300px;
         }
 
-        /* Características / Tarjetas de Información */
         .features {
             padding: 50px 5%;
             text-align: center;
@@ -176,7 +174,6 @@ index_html = """
             line-height: 1.5;
         }
 
-        /* Footer */
         footer {
             background-color: #362204;
             color: #a89c84;
@@ -222,7 +219,6 @@ index_html = """
                 <li><a href="#">Inicio</a></li>
                 <li><a href="/productos">Productos</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Carrito</a></li>
             </ul>
         </nav>
     </header>
