@@ -1,7 +1,7 @@
 from flask import Flask, render_template_string, redirect, url_for
 
 app = Flask(__name__)
-
+app.secret_key = 'clave'
 # INDEX REDISEÑADO (Solo modifiqué este bloque)
 index_html = """
 <!DOCTYPE html>
