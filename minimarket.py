@@ -1,5 +1,5 @@
 from flask import Flask, render_template_string, redirect, url_for, session
-
+import uuid
 app = Flask(__name__)
 app.secret_key = 'clave'
 
@@ -997,13 +997,18 @@ def limpiar_carrito():
 def agregar_producto(nombre, precio):
     if 'carrito' not in session:
         session['carrito'] = {}
-    for id, item in session['carrito'].items():
+
+    carrito = session['carrito']
+
+    for item in carrito.values():
         if item['nombre'] == nombre:
             item['cantidad'] += 1
             break
     else:
-        nuevo_id = str(len(session['carrito']) + 1)
-        session['carrito'][nuevo_id] = {'nombre': nombre, 'precio': precio, 'cantidad': 1}
+        nuevo_id = str(uuid.uuid4())
+        carrito[nuevo_id] = {'nombre': nombre, 'precio': precio, 'cantidad': 1}
+
+    session['carrito'] = carrito  # re-asignar para que Flask detecte el cambio
     session.modified = True
     return redirect(url_for('productos'))
 
