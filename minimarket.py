@@ -1,8 +1,8 @@
 from flask import Flask, render_template_string, redirect, url_for, session
 
 app = Flask(__name__)
+#Sin la clave no funciona :v
 app.secret_key = 'clave'
-# INDEX REDISEÑADO (Solo modifiqué este bloque)
 index_html = """
 <!DOCTYPE html>
 <html lang="es">
@@ -1024,7 +1024,7 @@ footer {
 
 """
 
-@app.route('/')
+
 
 @app.route('/')
 def inicio():
@@ -1039,6 +1039,22 @@ def productos():
 @app.route('/limpiar')
 def limpiar_carrito():
     session.pop('carrito', None)
+    return redirect(url_for('productos'))
+    @app.route('/agregar/<nombre>/<float:precio>')
+    
+def agregar_producto(nombre, precio):
+    if 'carrito' not in session:
+        session['carrito'] = {}
+    # Busca si ya existe el producto
+    for id, item in session['carrito'].items():
+        if item['nombre'] == nombre:
+            item['cantidad'] += 1
+            break
+    else:
+        # Si no existe, lo crea con una id simple
+        nuevo_id = str(len(session['carrito']) + 1)
+        session['carrito'][nuevo_id] = {'nombre': nombre, 'precio': precio, 'cantidad': 1}
+    session.modified = True
     return redirect(url_for('productos'))
 if __name__ == '__main__':
     app.run(debug=True)
