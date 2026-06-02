@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, redirect, url_for
+from flask import Flask, render_template_string, redirect, url_for, session
 
 app = Flask(__name__)
 app.secret_key = 'clave'
@@ -1013,25 +1013,32 @@ footer {
         <p class="carrito-vacio">El carrito está vacío.</p>
     {% endif %}
 </aside>
-
+<button class="btn-toggle-carrito" onclick="toggleCarrito()">🛒</button>
+<script>
+    function toggleCarrito() {
+        document.querySelector('.carrito-flotante').classList.toggle('oculto');
+    }
+</script>
 </body>
 </html>
 
 """
 
 @app.route('/')
-def index():
-    carrito = session.get('carrito', {})
-    # Calculamos el total aquí para mostrarlo en el panel lateral
-    total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
-    return render_template('index.html', total_actual=total_actual)
-    
-def inicio():
-    return render_template_string(index_html)
 
+@app.route('/')
+def inicio():
+    carrito = session.get('carrito', {})
+    total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
+    return render_template_string(index_html, total_actual=total_actual, session=session)
 @app.route('/productos')
 def productos():
-    return render_template_string(productos_html)
-
+    carrito = session.get('carrito', {})
+    total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
+    return render_template_string(productos_html, session=session, total_actual=total_actual)
+@app.route('/limpiar')
+def limpiar_carrito():
+    session.pop('carrito', None)
+    return redirect(url_for('productos'))
 if __name__ == '__main__':
     app.run(debug=True)
