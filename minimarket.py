@@ -1,8 +1,8 @@
 from flask import Flask, render_template_string, redirect, url_for, session
 
 app = Flask(__name__)
-#Sin la clave no funciona :v
 app.secret_key = 'clave'
+
 index_html = """
 <!DOCTYPE html>
 <html lang="es">
@@ -64,7 +64,7 @@ index_html = """
 
         /* Sección intro (Bienvenida) */
         .intro {
-            
+            background: linear-gradient(135deg, #5a3907, #362204);
             color: white;
             padding: 60px 5%;
             display: flex;
@@ -239,17 +239,14 @@ index_html = """
             <h3>¿Por qué elegirnos?</h3>
             <div class="contenedor-tarjetas">
                 <div class="tarjeta">
-                   
                     <h4>Variedad en los productos</h4>
                     <p>Abarrotes, snack y alimentos del día a día</p>
                 </div>
                 <div class="tarjeta">
-                 
                     <h4>Productos frescos</h4>
                     <p>Renovación constante del stock.</p>
                 </div>
                 <div class="tarjeta">
-                 
                     <h4>Buena atención</h4>
                     <p>Basada en el respeto.</p>
                 </div>
@@ -264,7 +261,6 @@ index_html = """
 </html>
 """
 
-# PRODUCTOS (Exactamente igual, sin ningún cambio)
 productos_html = """
 <!DOCTYPE html>
 <html lang="es">
@@ -332,7 +328,7 @@ productos_html = """
 .malla-productos {
     flex: 3;
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr)); /* Bajamos a 4 para que entre el carrito */
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
     gap: 15px;
 }
 
@@ -526,32 +522,24 @@ footer {
 </head>
 <body>
 
-
-
-
     <header>
         <h1>Productos</h1>
         <p>Buscar</p>
     </header>
 
-
     <main class="contenedor">
          <h4>Comestibles</h4><br>
         <section class="malla-productos">
            
-
-
             <article class="tarjeta-producto">
-
                 <img class="imagen-producto" src="./img/i1.jpg" alt="i1">
                 <div class="info-producto">
                     <h3>Galleta soda</h3>
                     <p>6 unidades (222 gr)</p>
                 </div>
                 <span class="precio">S/.3.30</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Galleta soda/3.30" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i2.jpg" alt="i2">
@@ -560,9 +548,8 @@ footer {
                     <p>500 ml</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Coca Cola/3.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i3.jpg" alt="i3">
@@ -571,9 +558,8 @@ footer {
                     <p>390 gr</p>
                 </div>
                 <span class="precio">S/.4.20</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Leche Gloria/4.20" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i4.jpg" alt="i4">
@@ -582,9 +568,8 @@ footer {
                     <p>1000 gr</p>
                 </div>
                 <span class="precio">S/.6.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Yogurt Laive/6.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i5.jpg" alt="i5">
@@ -593,9 +578,8 @@ footer {
                     <p>500 gr</p>
                 </div>
                 <span class="precio">S/.8.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Pan en bolsa/8.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i6.jpg" alt="i6">
@@ -604,9 +588,8 @@ footer {
                     <p>6 unidades (222 gr)</p>
                 </div>
                 <span class="precio">S/.4.70</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Galletas de vainilla/4.70" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i7.jpg" alt="i7">
@@ -615,9 +598,8 @@ footer {
                     <p>140 gr</p>
                 </div>
                 <span class="precio">S/.5.80</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Atún en lata/5.80" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i8.jpg" alt="i8">
@@ -626,9 +608,8 @@ footer {
                     <p>180 gr</p>
                 </div>
                 <span class="precio">S/.21.90</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Café Kirma/21.90" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i9.jpg" alt="i9">
@@ -637,9 +618,8 @@ footer {
                     <p>15 unidades</p>
                 </div>
                 <span class="precio">S/.9.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Huevos/9.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i10.jpg" alt="i10">
@@ -648,9 +628,8 @@ footer {
                     <p>30 gr</p>
                 </div>
                 <span class="precio">S/.2.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Chocolate Triangulo/2.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i11.jpg" alt="i11">
@@ -659,9 +638,8 @@ footer {
                     <p>1500 ml</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Gaseosa KR/3.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i12.jpg" alt="i12">
@@ -670,9 +648,8 @@ footer {
                     <p>1500 ml</p>
                 </div>
                 <span class="precio">S/.6.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Gaseosa sprite/6.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i13.jpg" alt="i13">
@@ -681,9 +658,8 @@ footer {
                     <p>432 gr</p>
                 </div>
                 <span class="precio">S/.8.20</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Galletas oreo/8.20" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i14.jpg" alt="i14">
@@ -692,9 +668,8 @@ footer {
                     <p>190 gr</p>
                 </div>
                 <span class="precio">S/.5.80</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Mayonesa/5.80" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i15.jpg" alt="i15">
@@ -703,9 +678,8 @@ footer {
                     <p>320 gr</p>
                 </div>
                 <span class="precio">S/.5.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Mermelada/5.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i16.jpg" alt="i16">
@@ -714,9 +688,8 @@ footer {
                     <p>200 gr</p>
                 </div>
                 <span class="precio">S/.9.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Jamón San Fernando/9.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i17.jpg" alt="i17">
@@ -725,7 +698,7 @@ footer {
                     <p>225 gr</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Margarina Manti/3.50" class="boton-compra">Añadir</a>
             </article>
  
             <article class="tarjeta-producto">
@@ -735,9 +708,8 @@ footer {
                     <p>200 gr</p>
                 </div>
                 <span class="precio">S/.7.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Mantequilla Laive/7.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i19.jpg" alt="i19">
@@ -746,9 +718,8 @@ footer {
                     <p>80 gr</p>
                 </div>
                 <span class="precio">S/.8.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Café Ecco/8.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i20.jpg" alt="i20">
@@ -757,9 +728,8 @@ footer {
                     <p>170 gr</p>
                 </div>
                 <span class="precio">S/.25.10</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Café Altomayo/25.10" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i21.jpg" alt="i21">
@@ -768,9 +738,8 @@ footer {
                     <p>946 ml</p>
                 </div>
                 <span class="precio">S/.5.80</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Leche Fresca Gloria/5.80" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i22.jpg" alt="i22">
@@ -779,9 +748,8 @@ footer {
                     <p>1000 ml</p>
                 </div>
                 <span class="precio">S/.5.20</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Leche sin lactosa Laive/5.20" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i23.jpg" alt="i23">
@@ -790,9 +758,8 @@ footer {
                     <p>820 gr</p>
                 </div>
                 <span class="precio">S/.9.70</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Duraznos en almibar/9.70" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i24.jpg" alt="i24">
@@ -801,9 +768,8 @@ footer {
                     <p>450 ml</p>
                 </div>
                 <span class="precio">S/.2.00</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Gaseosa Guarana/2.00" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i25.jpg" alt="i25">
@@ -812,9 +778,8 @@ footer {
                     <p>6 unidades</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Pan Chabata/3.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i26.jpg" alt="i26">
@@ -823,9 +788,8 @@ footer {
                     <p>6 unidades</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Pan caracol/3.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i27.jpg" alt="i27">
@@ -834,9 +798,8 @@ footer {
                     <p>6 unidades</p>
                 </div>
                 <span class="precio">S/.2.40</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Pan Francés/2.40" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i28.jpg" alt="i28">
@@ -845,9 +808,8 @@ footer {
                     <p>1500 ml</p>
                 </div>
                 <span class="precio">S/.4.00</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Gaseosa Concordia/4.00" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i29.jpg" alt="i29">
@@ -856,9 +818,8 @@ footer {
                     <p>500 ml</p>
                 </div>
                 <span class="precio">S/.2.00</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Cifrut/2.00" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i30.jpg" alt="i30">
@@ -867,9 +828,8 @@ footer {
                     <p>1000 ml</p>
                 </div>
                 <span class="precio">S/.4.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Pulp/4.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i31.jpg" alt="i31">
@@ -878,9 +838,8 @@ footer {
                     <p>125 gr</p>
                 </div>
                 <span class="precio">S/.2.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Yopimix/2.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i32.jpg" alt="i32">
@@ -889,9 +848,8 @@ footer {
                     <p>1000 ml</p>
                 </div>
                 <span class="precio">S/.14.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Helado de vainilla/14.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i33.jpg" alt="i33">
@@ -900,9 +858,8 @@ footer {
                     <p>1000 ml</p>
                 </div>
                 <span class="precio">S/.14.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Helado de fresa/14.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i34.jpg" alt="i34">
@@ -911,9 +868,8 @@ footer {
                     <p>170 gr</p>
                 </div>
                 <span class="precio">S/.8.40</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Queso Chedar/8.40" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i35.jpg" alt="i35">
@@ -922,9 +878,8 @@ footer {
                     <p>63 gr</p>
                 </div>
                 <span class="precio">S/.4.20</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Chocolate Vizio/4.20" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i36.jpg" alt="i36">
@@ -933,9 +888,8 @@ footer {
                     <p>6 unidades</p>
                 </div>
                 <span class="precio">S/.3.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Galleta rellenitas/3.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i37.jpg" alt="i37">
@@ -944,9 +898,8 @@ footer {
                     <p>250 gr</p>
                 </div>
                 <span class="precio">S/.6.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Cereales Angel Chocolate/6.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i38.jpg" alt="i38">
@@ -955,9 +908,8 @@ footer {
                     <p>1000 gr</p>
                 </div>
                 <span class="precio">S/.14.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Cereales Angel Maiz/14.50" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i39.jpg" alt="i39">
@@ -966,9 +918,8 @@ footer {
                     <p>900 gr</p>
                 </div>
                 <span class="precio">S/.9.30</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Avena/9.30" class="boton-compra">Añadir</a>
             </article>
-
 
             <article class="tarjeta-producto">
                 <img class="imagen-producto" src="./img/i40.jpg" alt="i40">
@@ -977,18 +928,17 @@ footer {
                     <p>5 unidades</p>
                 </div>
                 <span class="precio">S/.1.50</span>
-                <a href="#" class="boton-compra">Añadir</a>
+                <a href="/agregar/Chicle trident/1.50" class="boton-compra">Añadir</a>
             </article>
-
 
         </section>
     </main>
 
-
     <footer>
         <p>&copy; Todos los derechos reservados 2026</p>
     </footer>
-    <aside class="carrito-flotante">
+    
+    <aside class="carrito-flotante oculto">
     <h2>Tu Carrito</h2>
     
     {% if session.get('carrito') %}
@@ -1013,48 +963,49 @@ footer {
         <p class="carrito-vacio">El carrito está vacío.</p>
     {% endif %}
 </aside>
+
 <button class="btn-toggle-carrito" onclick="toggleCarrito()">🛒</button>
+
 <script>
     function toggleCarrito() {
         document.querySelector('.carrito-flotante').classList.toggle('oculto');
     }
 </script>
+
 </body>
 </html>
-
 """
-
-
 
 @app.route('/')
 def inicio():
     carrito = session.get('carrito', {})
     total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
     return render_template_string(index_html, total_actual=total_actual, session=session)
+
 @app.route('/productos')
 def productos():
     carrito = session.get('carrito', {})
     total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
     return render_template_string(productos_html, session=session, total_actual=total_actual)
+
 @app.route('/limpiar')
 def limpiar_carrito():
     session.pop('carrito', None)
     return redirect(url_for('productos'))
-    @app.route('/agregar/<nombre>/<float:precio>')
-    
+
+@app.route('/agregar/<nombre>/<float:precio>')
 def agregar_producto(nombre, precio):
     if 'carrito' not in session:
         session['carrito'] = {}
-    # Busca si ya existe el producto
     for id, item in session['carrito'].items():
         if item['nombre'] == nombre:
             item['cantidad'] += 1
             break
     else:
-        # Si no existe, lo crea con una id simple
         nuevo_id = str(len(session['carrito']) + 1)
         session['carrito'][nuevo_id] = {'nombre': nombre, 'precio': precio, 'cantidad': 1}
     session.modified = True
     return redirect(url_for('productos'))
+
 if __name__ == '__main__':
     app.run(debug=True)
