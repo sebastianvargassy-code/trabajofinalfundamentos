@@ -371,7 +371,17 @@ productos_html = """
     justify-content: space-between;
     font-size: 16px;
 }
-
+.btn-quitar {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: color 0.2s;
+}
+.btn-quitar:hover {
+    color: lightsalmon;
+}
 .btn-vaciar {
     display: block;
     text-align: center;
@@ -945,12 +955,14 @@ footer {
         <div class="lista-carrito">
             {% for id, item in session['carrito'].items() %}
             <div class="item-carrito">
-                <div>
-                    <strong>{{ item.nombre }}</strong>
-                    <p>Cant: {{ item.cantidad }}</p>
-                </div>
-                <span>S/.{{ "%.2f"|format(item.precio * item.cantidad) }}</span>
-            </div>
+             <div class="item-carrito">
+    <div>
+        <strong>{{ item.nombre }}</strong>
+        <p>Cant: {{ item.cantidad }}</p>
+    </div>
+    <span>S/.{{ "%.2f"|format(item.precio * item.cantidad) }}</span>
+    <a href="/quitar/{{ id }}" class="btn-quitar">✕</a>
+</div>
             {% endfor %}
         </div>
         
@@ -992,7 +1004,13 @@ def productos():
 def limpiar_carrito():
     session.pop('carrito', None)
     return redirect(url_for('productos'))
-
+@app.route('/quitar/<id_item>')
+def quitar_producto(id_item):
+    carrito = session.get('carrito', {})
+    carrito.pop(id_item, None)
+    session['carrito'] = carrito
+    session.modified = True
+    return redirect(url_for('productos'))
 @app.route('/agregar/<nombre>/<float:precio>')
 def agregar_producto(nombre, precio):
     if 'carrito' not in session:
