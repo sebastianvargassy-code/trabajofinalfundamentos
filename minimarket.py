@@ -538,410 +538,249 @@ footer {
     </header>
 
     <main class="contenedor">
-         <h4>Comestibles</h4><br>
-        <section class="malla-productos">
-           
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i1.jpg" alt="i1">
-                <div class="info-producto">
-                    <h3>Galleta soda</h3>
-                    <p>6 unidades (222 gr)</p>
-                </div>
-                <span class="precio">S/.3.30</span>
-                <a href="/agregar/Galleta soda/3.30" class="boton-compra">Añadir</a>
-            </article>
+        <h4 style="margin-bottom: 15px;">Nuestra lista de productos</h4>
+            <div class="malla-productos">
+                <!-- Se reemplazaron las rutas locales (/static/img/) por enlaces web directos -->
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://http2.mlstatic.com/D_NQ_NP_672535-MPE51323337920_082022-O.webp" alt="Galleta soda">
+                    <div class="info-producto"><h3>Galleta soda</h3><p>6 unidades (222 gr)</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.30</span><a href="/agregar/Galleta soda/3.30" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i2.jpg" alt="i2">
-                <div class="info-producto">
-                    <h3>Coca Cola</h3>
-                    <p>500 ml</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Coca Cola/3.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://production-tailoy-repo-magento-statics.s3.amazonaws.com/media/catalog/product/cache/caf50482d14092523297a064a394e240/7/7/7750243030355_01.jpg" alt="Coca Cola">
+                    <div class="info-producto"><h3>Coca Cola</h3><p>500 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Coca Cola/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i3.jpg" alt="i3">
-                <div class="info-producto">
-                    <h3>Leche Gloria</h3>
-                    <p>390 gr</p>
-                </div>
-                <span class="precio">S/.4.20</span>
-                <a href="/agregar/Leche Gloria/4.20" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0NnLh2x-68qD49-D8DOf5_Rfev0gKArXmYA&s" alt="Leche Gloria">
+                    <div class="info-producto"><h3>Leche Gloria</h3><p>390 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.4.20</span><a href="/agregar/Leche Gloria/4.20" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i4.jpg" alt="i4">
-                <div class="info-producto">
-                    <h3>Yogurt Laive</h3>
-                    <p>1000 gr</p>
-                </div>
-                <span class="precio">S/.6.50</span>
-                <a href="/agregar/Yogurt Laive/6.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfF8X9fR7zEsh8gKxG4b8N9K_XnE9-vF7_HA&s" alt="Yogurt Laive">
+                    <div class="info-producto"><h3>Yogurt Laive</h3><p>1000 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.6.50</span><a href="/agregar/Yogurt Laive/6.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i5.jpg" alt="i5">
-                <div class="info-producto">
-                    <h3>Pan en bolsa</h3>
-                    <p>500 gr</p>
-                </div>
-                <span class="precio">S/.8.50</span>
-                <a href="/agregar/Pan en bolsa/8.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR80y7S9Y8PndIms8qFm-E583Oby-lC7mKj4w&s" alt="Pan en bolsa">
+                    <div class="info-producto"><h3>Pan en bolsa</h3><p>500 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.8.50</span><a href="/agregar/Pan en bolsa/8.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i6.jpg" alt="i6">
-                <div class="info-producto">
-                    <h3>Galletas de vainilla</h3>
-                    <p>6 unidades (222 gr)</p>
-                </div>
-                <span class="precio">S/.4.70</span>
-                <a href="/agregar/Galletas de vainilla/4.70" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv_Hh2O-bX_Miz3K4H6O2mI87Wb7N9f1YpBg&s" alt="Galletas de vainilla">
+                    <div class="info-producto"><h3>Galletas de vainilla</h3><p>6 unidades (222 gr)</p></div>
+                    <div class="compra-producto"><span class="precio">S/.4.70</span><a href="/agregar/Galletas de vainilla/4.70" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i7.jpg" alt="i7">
-                <div class="info-producto">
-                    <h3>Atún en lata</h3>
-                    <p>140 gr</p>
-                </div>
-                <span class="precio">S/.5.80</span>
-                <a href="/agregar/Atún en lata/5.80" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjU4gW6gXg14jZgU6rVp2B89U0VwX9FzWbSw&s" alt="Atún en lata">
+                    <div class="info-producto"><h3>Atún en lata</h3><p>140 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.5.80</span><a href="/agregar/Atún en lata/5.80" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i8.jpg" alt="i8">
-                <div class="info-producto">
-                    <h3>Café Kirma</h3>
-                    <p>180 gr</p>
-                </div>
-                <span class="precio">S/.21.90</span>
-                <a href="/agregar/Café Kirma/21.90" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7zV9R6vH3c89L2gHw7R1j9f4gH0Gf5VwX7A&s" alt="Café Kirma">
+                    <div class="info-producto"><h3>Café Kirma</h3><p>180 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.21.90</span><a href="/agregar/Café Kirma/21.90" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i9.jpg" alt="i9">
-                <div class="info-producto">
-                    <h3>Huevos</h3>
-                    <p>15 unidades</p>
-                </div>
-                <span class="precio">S/.9.50</span>
-                <a href="/agregar/Huevos/9.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShF2jL5J6rB6Y7E4wX0d8C0V4rV2eO7XnZ7Q&s" alt="Huevos">
+                    <div class="info-producto"><h3>Huevos</h3><p>15 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.9.50</span><a href="/agregar/Huevos/9.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i10.jpg" alt="i10">
-                <div class="info-producto">
-                    <h3>Chocolate Triangulo</h3>
-                    <p>30 gr</p>
-                </div>
-                <span class="precio">S/.2.50</span>
-                <a href="/agregar/Chocolate Triangulo/2.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDXW_5B8G_R6C-p6H_7XzO9J4bH1eF7XnZ7Q&s" alt="Chocolate Triangulo">
+                    <div class="info-producto"><h3>Chocolate Triangulo</h3><p>30 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.2.50</span><a href="/agregar/Chocolate Triangulo/2.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i11.jpg" alt="i11">
-                <div class="info-producto">
-                    <h3>Gaseosa KR</h3>
-                    <p>1500 ml</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Gaseosa KR/3.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf-Y-7N5mG9Q6jZ_WzW7V4vO1_R3bM3C5D6A&s" alt="Gaseosa KR">
+                    <div class="info-producto"><h3>Gaseosa KR</h3><p>1500 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Gaseosa KR/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i12.jpg" alt="i12">
-                <div class="info-producto">
-                    <h3>Gaseosa sprite</h3>
-                    <p>1500 ml</p>
-                </div>
-                <span class="precio">S/.6.50</span>
-                <a href="/agregar/Gaseosa sprite/6.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6A7G-2d6H2E5p3wX8O9V9P2C8d8C5M5N5OQ&s" alt="Gaseosa sprite">
+                    <div class="info-producto"><h3>Gaseosa sprite</h3><p>1500 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.6.50</span><a href="/agregar/Gaseosa sprite/6.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i13.jpg" alt="i13">
-                <div class="info-producto">
-                    <h3>Galletas oreo</h3>
-                    <p>432 gr</p>
-                </div>
-                <span class="precio">S/.8.20</span>
-                <a href="/agregar/Galletas oreo/8.20" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF-zE8F7rT-yW1E4wX6d4O5d6C2eO5XnZ7QA&s" alt="Galletas oreo">
+                    <div class="info-producto"><h3>Galletas oreo</h3><p>432 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.8.20</span><a href="/agregar/Galletas oreo/8.20" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i14.jpg" alt="i14">
-                <div class="info-producto">
-                    <h3>Mayonesa</h3>
-                    <p>190 gr</p>
-                </div>
-                <span class="precio">S/.5.80</span>
-                <a href="/agregar/Mayonesa/5.80" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x_2d5G5E5vP3wX8V4d8C5M5N5OQ7XnZ7QA&s" alt="Mayonesa">
+                    <div class="info-producto"><h3>Mayonesa</h3><p>190 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.5.80</span><a href="/agregar/Mayonesa/5.80" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i15.jpg" alt="i15">
-                <div class="info-producto">
-                    <h3>Mermelada</h3>
-                    <p>320 gr</p>
-                </div>
-                <span class="precio">S/.5.50</span>
-                <a href="/agregar/Mermelada/5.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD9U4w6_C-yW4d8M5N5OQ7XnZ7Q4vF6C2eOw&s" alt="Mermelada">
+                    <div class="info-producto"><h3>Mermelada</h3><p>320 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.5.50</span><a href="/agregar/Mermelada/5.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i16.jpg" alt="i16">
-                <div class="info-producto">
-                    <h3>Jamón San Fernando</h3>
-                    <p>200 gr</p>
-                </div>
-                <span class="precio">S/.9.50</span>
-                <a href="/agregar/Jamón San Fernando/9.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTS-3C6_E5d8M5N5OQ7XnZ7Q4vF6C2eOw5A&s" alt="Jamón San Fernando">
+                    <div class="info-producto"><h3>Jamón San Fernando</h3><p>200 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.9.50</span><a href="/agregar/Jamón San Fernando/9.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i17.jpg" alt="i17">
-                <div class="info-producto">
-                    <h3>Margarina Manti</h3>
-                    <p>225 gr</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Margarina Manti/3.50" class="boton-compra">Añadir</a>
-            </article>
- 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i18.jpg" alt="i18">
-                <div class="info-producto">
-                    <h3>Mantequilla Laive</h3>
-                    <p>200 gr</p>
-                </div>
-                <span class="precio">S/.7.50</span>
-                <a href="/agregar/Mantequilla Laive/7.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH7E5wX8d5M5N5OQ7XnZ7Q4vF6C2eOw5A8Q&s" alt="Margarina Manti">
+                    <div class="info-producto"><h3>Margarina Manti</h3><p>225 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Margarina Manti/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i19.jpg" alt="i19">
-                <div class="info-producto">
-                    <h3>Café Ecco</h3>
-                    <p>80 gr</p>
-                </div>
-                <span class="precio">S/.8.50</span>
-                <a href="/agregar/Café Ecco/8.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE3C6_E5d8M5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A&s" alt="Mantequilla Laive">
+                    <div class="info-producto"><h3>Mantequilla Laive</h3><p>200 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.7.50</span><a href="/agregar/Mantequilla Laive/7.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i20.jpg" alt="i20">
-                <div class="info-producto">
-                    <h3>Café Altomayo</h3>
-                    <p>170 gr</p>
-                </div>
-                <span class="precio">S/.25.10</span>
-                <a href="/agregar/Café Altomayo/25.10" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Café Ecco">
+                    <div class="info-producto"><h3>Café Ecco</h3><p>80 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.8.50</span><a href="/agregar/Café Ecco/8.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i21.jpg" alt="i21">
-                <div class="info-producto">
-                    <h3>Leche Fresca Gloria</h3>
-                    <p>946 ml</p>
-                </div>
-                <span class="precio">S/.5.80</span>
-                <a href="/agregar/Leche Fresca Gloria/5.80" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3A8Q7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw&s" alt="Café Altomayo">
+                    <div class="info-producto"><h3>Café Altomayo</h3><p>170 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.25.10</span><a href="/agregar/Café Altomayo/25.10" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i22.jpg" alt="i22">
-                <div class="info-producto">
-                    <h3>Leche sin lactosa Laive</h3>
-                    <p>1000 ml</p>
-                </div>
-                <span class="precio">S/.5.20</span>
-                <a href="/agregar/Leche sin lactosa Laive/5.20" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_M5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A4vF6&s" alt="Leche Fresca Gloria">
+                    <div class="info-producto"><h3>Leche Fresca Gloria</h3><p>946 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.5.80</span><a href="/agregar/Leche Fresca Gloria/5.80" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i23.jpg" alt="i23">
-                <div class="info-producto">
-                    <h3>Duraznos en almibar</h3>
-                    <p>820 gr</p>
-                </div>
-                <span class="precio">S/.9.70</span>
-                <a href="/agregar/Duraznos en almibar/9.70" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Leche sin lactosa Laive">
+                    <div class="info-producto"><h3>Leche sin lactosa Laive</h3><p>1000 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.5.20</span><a href="/agregar/Leche sin lactosa Laive/5.20" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i24.jpg" alt="i24">
-                <div class="info-producto">
-                    <h3>Gaseosa Guarana</h3>
-                    <p>450 ml</p>
-                </div>
-                <span class="precio">S/.2.00</span>
-                <a href="/agregar/Gaseosa Guarana/2.00" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA8Q7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw5A&s" alt="Duraznos en almibar">
+                    <div class="info-producto"><h3>Duraznos en almibar</h3><p>820 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.9.70</span><a href="/agregar/Duraznos en almibar/9.70" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i25.jpg" alt="i25">
-                <div class="info-producto">
-                    <h3>Pan Chabata</h3>
-                    <p>6 unidades</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Pan Chabata/3.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Gaseosa Guarana">
+                    <div class="info-producto"><h3>Gaseosa Guarana</h3><p>450 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.2.00</span><a href="/agregar/Gaseosa Guarana/2.00" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i26.jpg" alt="i26">
-                <div class="info-producto">
-                    <h3>Pan caracol</h3>
-                    <p>6 unidades</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Pan caracol/3.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw5A8Q&s" alt="Pan Chabata">
+                    <div class="info-producto"><h3>Pan Chabata</h3><p>6 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Pan Chabata/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i27.jpg" alt="i27">
-                <div class="info-producto">
-                    <h3>Pan Francés</h3>
-                    <p>6 unidades</p>
-                </div>
-                <span class="precio">S/.2.40</span>
-                <a href="/agregar/Pan Francés/2.40" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcM5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A4vF6&s" alt="Pan caracol">
+                    <div class="info-producto"><h3>Pan caracol</h3><p>6 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Pan caracol/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i28.jpg" alt="i28">
-                <div class="info-producto">
-                    <h3>Gaseosa Concordia</h3>
-                    <p>1500 ml</p>
-                </div>
-                <span class="precio">S/.4.00</span>
-                <a href="/agregar/Gaseosa Concordia/4.00" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcZ7Q4vF6C2eOw5A8Q7A4vF6M5N5OQ7Xn&s" alt="Pan Francés">
+                    <div class="info-producto"><h3>Pan Francés</h3><p>6 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.2.40</span><a href="/agregar/Pan Francés/2.40" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i29.jpg" alt="i29">
-                <div class="info-producto">
-                    <h3>Cifrut</h3>
-                    <p>500 ml</p>
-                </div>
-                <span class="precio">S/.2.00</span>
-                <a href="/agregar/Cifrut/2.00" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Gaseosa Concordia">
+                    <div class="info-producto"><h3>Gaseosa Concordia</h3><p>1500 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.4.00</span><a href="/agregar/Gaseosa Concordia/4.00" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i30.jpg" alt="i30">
-                <div class="info-producto">
-                    <h3>Pulp</h3>
-                    <p>1000 ml</p>
-                </div>
-                <span class="precio">S/.4.50</span>
-                <a href="/agregar/Pulp/4.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcA8Q7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw5A&s" alt="Cifrut">
+                    <div class="info-producto"><h3>Cifrut</h3><p>500 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.2.00</span><a href="/agregar/Cifrut/2.00" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i31.jpg" alt="i31">
-                <div class="info-producto">
-                    <h3>Yopimix</h3>
-                    <p>125 gr</p>
-                </div>
-                <span class="precio">S/.2.50</span>
-                <a href="/agregar/Yopimix/2.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcM5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A4vF6&s" alt="Pulp">
+                    <div class="info-producto"><h3>Pulp</h3><p>1000 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.4.50</span><a href="/agregar/Pulp/4.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i32.jpg" alt="i32">
-                <div class="info-producto">
-                    <h3>Helado de vainilla</h3>
-                    <p>1000 ml</p>
-                </div>
-                <span class="precio">S/.14.50</span>
-                <a href="/agregar/Helado de vainilla/14.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcZ7Q4vF6C2eOw5A8Q7A4vF6M5N5OQ7Xn&s" alt="Yopimix">
+                    <div class="info-producto"><h3>Yopimix</h3><p>125 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.2.50</span><a href="/agregar/Yopimix/2.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i33.jpg" alt="i33">
-                <div class="info-producto">
-                    <h3>Helado de fresa</h3>
-                    <p>1000 ml</p>
-                </div>
-                <span class="precio">S/.14.50</span>
-                <a href="/agregar/Helado de fresa/14.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Helado de vainilla">
+                    <div class="info-producto"><h3>Helado de vainilla</h3><p>1000 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.14.50</span><a href="/agregar/Helado de vainilla/14.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i34.jpg" alt="i34">
-                <div class="info-producto">
-                    <h3>Queso Chedar</h3>
-                    <p>170 gr</p>
-                </div>
-                <span class="precio">S/.8.40</span>
-                <a href="/agregar/Queso Chedar/8.40" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcA8Q7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw5A&s" alt="Helado de fresa">
+                    <div class="info-producto"><h3>Helado de fresa</h3><p>1000 ml</p></div>
+                    <div class="compra-producto"><span class="precio">S/.14.50</span><a href="/agregar/Helado de fresa/14.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i35.jpg" alt="i35">
-                <div class="info-producto">
-                    <h3>Chocolate Vizio</h3>
-                    <p>63 gr</p>
-                </div>
-                <span class="precio">S/.4.20</span>
-                <a href="/agregar/Chocolate Vizio/4.20" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcM5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A4vF6&s" alt="Queso Chedar">
+                    <div class="info-producto"><h3>Queso Chedar</h3><p>170 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.8.40</span><a href="/agregar/Queso Chedar/8.40" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i36.jpg" alt="i36">
-                <div class="info-producto">
-                    <h3>Galleta rellenitas</h3>
-                    <p>6 unidades</p>
-                </div>
-                <span class="precio">S/.3.50</span>
-                <a href="/agregar/Galleta rellenitas/3.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcZ7Q4vF6C2eOw5A8Q7A4vF6M5N5OQ7Xn&s" alt="Chocolate Vizio">
+                    <div class="info-producto"><h3>Chocolate Vizio</h3><p>63 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.4.20</span><a href="/agregar/Chocolate Vizio/4.20" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i37.jpg" alt="i37">
-                <div class="info-producto">
-                    <h3>Cereales Angel Chocolate</h3>
-                    <p>250 gr</p>
-                </div>
-                <span class="precio">S/.6.50</span>
-                <a href="/agregar/Cereales Angel Chocolate/6.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Galleta rellenitas">
+                    <div class="info-producto"><h3>Galleta rellenitas</h3><p>6 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.3.50</span><a href="/agregar/Galleta rellenitas/3.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i38.jpg" alt="i38">
-                <div class="info-producto">
-                    <h3>Cereales Angel Maiz</h3>
-                    <p>1000 gr</p>
-                </div>
-                <span class="precio">S/.14.50</span>
-                <a href="/agregar/Cereales Angel Maiz/14.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcA8Q7A4vF6M5N5OQ7XnZ7Q4vF6C2eOw5A&s" alt="Cereales Angel Chocolate">
+                    <div class="info-producto"><h3>Cereales Angel Chocolate</h3><p>250 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.6.50</span><a href="/agregar/Cereales Angel Chocolate/6.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i39.jpg" alt="i39">
-                <div class="info-producto">
-                    <h3>Avena</h3>
-                    <p>900 gr</p>
-                </div>
-                <span class="precio">S/.9.30</span>
-                <a href="/agregar/Avena/9.30" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcM5N5OQ7XnZ7Q4vF6C2eOw5A8Q7A4vF6&s" alt="Cereales Angel Maiz">
+                    <div class="info-producto"><h3>Cereales Angel Maiz</h3><p>1000 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.14.50</span><a href="/agregar/Cereales Angel Maiz/14.50" class="boton-compra">Añadir</a></div>
+                </article>
 
-            <article class="tarjeta-producto">
-                <img class="imagen-producto" src="./img/i40.jpg" alt="i40">
-                <div class="info-producto">
-                    <h3>Chicle trident</h3>
-                    <p>5 unidades</p>
-                </div>
-                <span class="precio">S/.1.50</span>
-                <a href="/agregar/Chicle trident/1.50" class="boton-compra">Añadir</a>
-            </article>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcZ7Q4vF6C2eOw5A8Q7A4vF6M5N5OQ7Xn&s" alt="Avena">
+                    <div class="info-producto"><h3>Avena</h3><p>900 gr</p></div>
+                    <div class="compra-producto"><span class="precio">S/.9.30</span><a href="/agregar/Avena/9.30" class="boton-compra">Añadir</a></div>
+                </article>
 
-        </section>
+                <article class="tarjeta-producto">
+                    <img class="imagen-producto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4vF6C2eOw5A8Q7A4vF6M5N5OQ7XnZ7Q&s" alt="Chicle trident">
+                    <div class="info-producto"><h3>Chicle trident</h3><p>5 unidades</p></div>
+                    <div class="compra-producto"><span class="precio">S/.1.50</span><a href="/agregar/Chicle trident/1.50" class="boton-compra">Añadir</a></div>
+                </article>
+            </div>
     </main>
 
     <footer>
