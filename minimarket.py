@@ -2,7 +2,48 @@ from flask import Flask, render_template_string, redirect, url_for, session
 import uuid
 app = Flask(__name__)
 app.secret_key = 'clave'
-
+PRODUCTOS_INDEXADOS = [
+    ("Galleta soda", 3.30, "https://plazavea.vteximg.com.br/arquivos/ids/31462827-512-512/20210921.jpg"),
+    ("Coca Cola", 3.50, "https://plazavea.vteximg.com.br/arquivos/ids/26778945-512-512/170366.jpg"),
+    ("Leche Gloria", 4.20, "https://plazavea.vteximg.com.br/arquivos/ids/34330623-512-512/549174.jpg"),
+    ("Yogurt Laive", 6.50, "https://plazavea.vteximg.com.br/arquivos/ids/34330669-512-512/115501.jpg"),
+    ("Pan en bolsa", 8.50, "https://plazavea.vteximg.com.br/arquivos/ids/27339105-512-512/918195.jpg"),
+    ("Galletas de vainilla", 4.70, "https://wongfood.vtexassets.com/arquivos/ids/760205/Galletas-Field-Sabor-Vainilla-Family-Size-148g-1-238046394.jpg"),
+    ("Atún en lata", 5.80, "https://plazavea.vteximg.com.br/arquivos/ids/32338166-512-512/20121764.jpg"),
+    ("Café Kirma", 21.90, "https://plazavea.vteximg.com.br/arquivos/ids/34330628-512-512/359929.jpg"),
+    ("Huevos", 9.50, "https://metroio.vtexassets.com/arquivos/ids/240765-512-512"),
+    ("Chocolate Triangulo", 2.50, "https://plazavea.vteximg.com.br/arquivos/ids/34330635-512-512/575344.jpg"),
+    ("Gaseosa KR", 3.50, "https://plazavea.vteximg.com.br/arquivos/ids/561005-512-512/20136696.jpg"),
+    ("Gaseosa sprite", 6.50, "https://plazavea.vteximg.com.br/arquivos/ids/26779432-512-512/358217.jpg"),
+    ("Galletas oreo", 8.20, "https://plazavea.vteximg.com.br/arquivos/ids/26992994-512-512/570119.jpg"),
+    ("Mayonesa", 5.80, "https://plazavea.vteximg.com.br/arquivos/ids/34330654-512-512/20067645.jpg"),
+    ("Mermelada", 5.50, "https://plazavea.vteximg.com.br/arquivos/ids/15002680-512-512/20282938.jpg"),
+    ("Jamón San Fernando", 9.50, "https://plazavea.vteximg.com.br/arquivos/ids/22086888-512-512/20200730.jpg"),
+    ("Margarina Manti", 3.50, "https://metroio.vtexassets.com/arquivos/ids/281568-512-512"),
+    ("Mantequilla Laive", 7.50, "https://plazavea.vteximg.com.br/arquivos/ids/34330639-512-512/653066.jpg"),
+    ("Café Ecco", 8.50, "https://plazavea.vteximg.com.br/arquivos/ids/34330629-512-512/361844.jpg"),
+    ("Café Altomayo", 25.10, "https://plazavea.vteximg.com.br/arquivos/ids/27237096-512-512/20054770.jpg"),
+    ("Leche Fresca Gloria", 5.80, "https://plazavea.vteximg.com.br/arquivos/ids/34330626-512-512/358217.jpg"),
+    ("Leche sin lactosa Laive", 5.20, "https://plazavea.vteximg.com.br/arquivos/ids/34330641-512-512/692095.jpg"),
+    ("Duraznos en almibar", 9.70, "https://plazavea.vteximg.com.br/arquivos/ids/34330650-512-512/803479.jpg"),
+    ("Gaseosa Guarana", 2.00, "https://plazavea.vteximg.com.br/arquivos/ids/26815354-512-512/636255.jpg"),
+    ("Pan Chabata", 3.50, "https://plazavea.vteximg.com.br/arquivos/ids/477464-512-512/20128911.jpg"),
+    ("Pan caracol", 3.50, "https://plazavea.vteximg.com.br/arquivos/ids/477466-512-512/20128913.jpg"),
+    ("Pan Francés", 2.40, "https://plazavea.vteximg.com.br/arquivos/ids/477463-512-512/20128910.jpg"),
+    ("Gaseosa Concordia", 4.00, "https://plazavea.vteximg.com.br/arquivos/ids/26815357-512-512/720214.jpg"),
+    ("Cifrut", 2.00, "https://plazavea.vteximg.com.br/arquivos/ids/561021-512-512/20042456.jpg"),
+    ("Pulp", 4.50, "https://plazavea.vteximg.com.br/arquivos/ids/31888408-512-512/20506323.jpg"),
+    ("Yopimix", 2.50, "https://plazavea.vteximg.com.br/arquivos/ids/34330671-512-512/20099804.jpg"),
+    ("Helado de vainilla", 14.50, "https://plazavea.vteximg.com.br/arquivos/ids/28884631-512-512/20392577.jpg"),
+    ("Helado de fresa", 14.50, "https://plazavea.vteximg.com.br/arquivos/ids/28884625-512-512/20392571.jpg"),
+    ("Queso Chedar", 8.40, "https://plazavea.vteximg.com.br/arquivos/ids/34330643-512-512/707121.jpg"),
+    ("Chocolate Vizio", 4.20, "https://plazavea.vteximg.com.br/arquivos/ids/22903260-512-512/20042797.jpg"),
+    ("Galleta rellenitas", 3.50, "https://metroio.vtexassets.com/arquivos/ids/514034-512-512"),
+    ("Cereales Angel Chocolate", 6.50, "https://plazavea.vteximg.com.br/arquivos/ids/17393278-512-512/572520.jpg"),
+    ("Cereales Angel Maiz", 14.50, "https://plazavea.vteximg.com.br/arquivos/ids/26966604-512-512/570766.jpg"),
+    ("Avena", 9.30, "https://plazavea.vteximg.com.br/arquivos/ids/26050246-512-512/20278377.jpg"),
+    ("Chicle trident", 1.50, "https://plazavea.vteximg.com.br/arquivos/ids/30212887-512-512/20236543.jpg")
+]
 index_html = """
 <!DOCTYPE html>
 <html lang="es">
@@ -826,10 +867,16 @@ footer {
 """
 
 @app.route('/')
-def inicio():
-    carrito = session.get('carrito', {})
-    total_actual = sum(item['precio'] * item['cantidad'] for item in carrito.values())
-    return render_template_string(index_html, total_actual=total_actual, session=session)
+def index():
+    carrito = session.get('carrito', [])
+    total = sum(float(item['precio']) for item in carrito)
+    
+    return render_template_string(
+        HTML_BASE, 
+        productos=PRODUCTOS_INDEXADOS, 
+        carrito=carrito, 
+        total=total
+    )
 
 @app.route('/productos')
 def productos():
