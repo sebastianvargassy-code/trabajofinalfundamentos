@@ -115,7 +115,7 @@ productos_html = """
         .btn-quitar:hover { color: #d9534f; }
         
         .total-carrito { display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; padding-top: 10px; border-top: 1px solid #eee; }
-        .btn-vaciar { display: block; text-align: center; background-color: #d9534f; color: white; text-decoration: none; padding: 30px; border-radius: 6px; font-size: 13px; margin-top: 15px; font-weight: bold; }
+        .btn-vaciar { display: block; text-align: center; background-color: #BAB5AD; color: white; text-decoration: none; padding: 30px; border-radius: 6px; font-size: 13px; margin-top: 15px; font-weight: bold; }
         .btn-vaciar:hover { background-color:black; }
         .carrito-vacio { text-align: center; color: #999; font-size: 13px; padding: 20px 0; }
 
