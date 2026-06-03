@@ -105,7 +105,7 @@ productos_html = """
         .boton-compra { background-color: #b6926f; color: white; padding: 6px 12px; font-size: 12px; font-weight: 600; border-radius: 4px; text-decoration: none; transition: background-color 0.2s; }
         .boton-compra:hover { background-color: #6d4b2a; }
 
-        .carrito-estatico { width: 340px; background-color: white; border: 10px solid #e2f3f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 20px; }
+        .carrito-estatico { width: 340px; background-color: white; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); position: sticky; top: 20px; }
         .carrito-estatico h2 { font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid lightsalmon; color: #5a3907; }
         .lista-carrito { max-height: 350px; overflow-y: auto; margin-bottom: 15px; }
         .item-carrito { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
