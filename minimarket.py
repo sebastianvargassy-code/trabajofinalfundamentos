@@ -91,10 +91,8 @@ productos_html = """
         header h1 { font-size: 28px; color: #fff; }
         header .nav-link { color: #f7f5f0; text-decoration: none; margin-top: 5px; display: inline-block; font-size: 14px; }
 
-        /* Contenedor Split de Dos Columnas */
         .contenedor-main { max-width: 1300px; width: 95%; margin: 30px auto; display: flex; gap: 25px; align-items: flex-start; }
         
-        /* Columna Izquierda: Catálogo */
         .malla-productos { flex: 3; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
         .tarjeta-producto { background-color: white; border: 1px solid #9b8360; border-radius: 8px; display: flex; flex-direction: column; padding: 12px; transition: transform 0.2s; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
         .tarjeta-producto:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
@@ -107,7 +105,6 @@ productos_html = """
         .boton-compra { background-color: #b6926f; color: white; padding: 6px 12px; font-size: 12px; font-weight: 600; border-radius: 4px; text-decoration: none; transition: background-color 0.2s; }
         .boton-compra:hover { background-color: #6d4b2a; }
 
-        /* Columna Derecha: Carrito Estático Lateral Fijo */
         .carrito-estatico { width: 340px; background-color: white; border: 10px solid #e2f3f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 20px; }
         .carrito-estatico h2 { font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid lightsalmon; color: #5a3907; }
         .lista-carrito { max-height: 350px; overflow-y: auto; margin-bottom: 15px; }
@@ -124,7 +121,6 @@ productos_html = """
 
         footer { text-align: center; font-size: 12px; background-color: #5a4a40; color: white; padding: 15px 0; margin-top: auto; }
 
-        /* Ajuste Responsivo */
         @media (max-width: 900px) {
             .contenedor-main { flex-direction: column; }
             .carrito-estatico { width: 100%; position: relative; top: 0; }
