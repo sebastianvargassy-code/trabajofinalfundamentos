@@ -6,208 +6,31 @@ app.secret_key = 'clave'
 
 
 PRODUCTOS_DATOS = {
-    "Galleta soda": {
-        "peso": "6 unidades (222 gr)", 
-        "precio": 3.30, 
-        "img": "https://www.makro.plazavea.com.pe/galletas-soda-field-bolsa-6un/p"
-    },
-    "Coca Cola": {
-        "peso": "500 ml", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/33481459-1000-1000/281027.jpg"
-    },
-    "Leche Gloria": {
-        "peso": "390 gr", 
-        "precio": 4.20, 
-        "img": "https://www.plazavea.com.pe/leche-reconstituida-entera-gloria-lata-390g-paquete-6un/p"
-    },
-    "Yogurt Laive": {
-        "peso": "1000 gr", 
-        "precio": 6.50, 
-        "img": "https://www.plazavea.com.pe/yogurt-bebible-laive-bio-sabor-a-vainilla-galonera-1-7kg/p"
-    },
-    "Pan en bolsa": {
-        "peso": "500 gr", 
-        "precio": 8.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27339105-512-512/918195.jpg"
-    },
-    "Galletas de vainilla": {
-        "peso": "6 unidades (222 gr)", 
-        "precio": 4.70, 
-        "img": "https://www.makro.plazavea.com.pe/galleta-vainilla-field-paquete-6un/p"
-    },
-    "Atún en lata": {
-        "peso": "140 gr", 
-        "precio": 5.80, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/32338166-512-512/20121764.jpg"
-    },
-    "Café Kirma": {
-        "peso": "180 gr", 
-        "precio": 21.90, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330628-512-512/359929.jpg"
-    },
-    "Huevos": {
-        "peso": "15 unidades", 
-        "precio": 9.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/511942-512-512/20147614.jpg"
-    },
-    "Chocolate Triangulo": {
-        "peso": "30 gr", 
-        "precio": 2.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330635-512-512/575344.jpg"
-    },
-    "Gaseosa KR": {
-        "peso": "1500 ml", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/561005-512-512/20136696.jpg"
-    },
-    "Gaseosa sprite": {
-        "peso": "1500 ml", 
-        "precio": 6.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26779432-512-512/358217.jpg"
-    },
-    "Galletas oreo": {
-        "peso": "432 gr", 
-        "precio": 8.20, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26992994-512-512/570119.jpg"
-    },
-    "Mayonesa": {
-        "peso": "190 gr", 
-        "precio": 5.80, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330654-512-512/20067645.jpg"
-    },
-    "Mermelada": {
-        "peso": "320 gr", 
-        "precio": 5.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/15002680-512-512/20282938.jpg"
-    },
-    "Jamón San Fernando": {
-        "peso": "200 gr", 
-        "precio": 9.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/22086888-512-512/20200730.jpg"
-    },
-    "Margarina Manti": {
-        "peso": "225 gr", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237060-512-512/20042468.jpg"
-    },
-    "Mantequilla Laive": {
-        "peso": "200 gr", 
-        "precio": 7.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330639-512-512/653066.jpg"
-    },
-    "Café Ecco": {
-        "peso": "80 gr", 
-        "precio": 8.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330629-512-512/361844.jpg"
-    },
-    "Café Altomayo": {
-        "peso": "170 gr", 
-        "precio": 25.10, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237096-512-512/20054770.jpg"
-    },
-    "Leche Fresca Gloria": {
-        "peso": "946 ml", 
-        "precio": 5.80, 
-        "img": "https://www.plazavea.com.pe/leche-gloria-entera-uhtcon-vitamina-a-cy-d-caja-1l/p"
-    },
-    "Leche sin lactosa Laive": {
-        "peso": "1000 ml", 
-        "precio": 5.20, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330641-512-512/692095.jpg"
-    },
-    "Duraznos en almibar": {
-        "peso": "820 gr", 
-        "precio": 9.70, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330650-512-512/803479.jpg"
-    },
-    "Gaseosa Guarana": {
-        "peso": "450 ml", 
-        "precio": 2.00, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815354-512-512/636255.jpg"
-    },
-    "Pan Chabata": {
-        "peso": "6 unidades", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477464-512-512/20128911.jpg"
-    },
-    "Pan caracol": {
-        "peso": "6 unidades", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477466-512-512/20128913.jpg"
-    },
-    "Pan Francés": {
-        "peso": "6 unidades", 
-        "precio": 2.40, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477463-512-512/20128910.jpg"
-    },
-    "Gaseosa Concordia": {
-        "peso": "1500 ml", 
-        "precio": 4.00, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815357-512-512/720214.jpg"
-    },
-    "Cifrut": {
-        "peso": "500 ml", 
-        "precio": 2.00, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/561021-512-512/20042456.jpg"
-    },
-    "Pulp": {
-        "peso": "1000 ml", 
-        "precio": 4.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/31888408-512-512/20506323.jpg"
-    },
-    "Yopimix": {
-        "peso": "125 gr", 
-        "precio": 2.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330671-512-512/20099804.jpg"
-    },
-    "Helado de vainilla": {
-        "peso": "1000 ml", 
-        "precio": 14.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884631-512-512/20392577.jpg"
-    },
-    "Helado de fresa": {
-        "peso": "1000 ml", 
-        "precio": 14.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884625-512-512/20392571.jpg"
-    },
-    "Queso Chedar": {
-        "peso": "170 gr", 
-        "precio": 8.40, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330643-512-512/707121.jpg"
-    },
-    "Chocolate Vizio": {
-        "peso": "63 gr", 
-        "precio": 4.20, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/22903260-512-512/20042797.jpg"
-    },
-    "Galleta rellenitas": {
-        "peso": "6 unidades", 
-        "precio": 3.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/1359676-512-512/20120281.jpg"
-    },
-    "Cereales Angel Chocolate": {
-        "peso": "250 gr", 
-        "precio": 6.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/17393278-512-512/572520.jpg"
-    },
-    "Cereales Angel Maiz": {
-        "peso": "1000 gr", 
-        "precio": 14.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26966604-512-512/570766.jpg"
-    },
-    "Avena": {
-        "peso": "900 gr", 
-        "precio": 9.30, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26050246-512-512/20278377.jpg"
-    },
-    "Chicle trident": {
-        "peso": "5 unidades", 
-        "precio": 1.50, 
-        "img": "https://plazavea.vteximg.com.br/arquivos/ids/30212887-512-512/20236543.jpg"
-    }
+    "Galleta soda": {"peso": "6 unidades", "precio": 3.30, "img": "https://images.unsplash.com/photo-1621939514649-280e2ee25f62?w=500"},
+    "Coca Cola": {"peso": "500 ml", "precio": 3.50, "img": "https://images.unsplash.com/photo-1622483767028-3f66f32a0c78?w=500"},
+    "Leche Gloria": {"peso": "390 gr", "precio": 4.20, "img": "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=500"},
+    "Yogurt Laive": {"peso": "1000 gr", "precio": 6.50, "img": "https://images.unsplash.com/photo-1576466190476-8097d225881e?w=500"},
+    "Pan en bolsa": {"peso": "500 gr", "precio": 8.50, "img": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500"},
+    "Atún en lata": {"peso": "140 gr", "precio": 5.80, "img": "https://images.unsplash.com/photo-1615485925301-447a1955f0b4?w=500"},
+    "Café Kirma": {"peso": "180 gr", "precio": 21.90, "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500"},
+    "Chocolate Triangulo": {"peso": "30 gr", "precio": 2.50, "img": "https://images.unsplash.com/photo-1548907040-ffa9c2d165b9?w=500"},
+    "Gaseosa KR": {"peso": "1500 ml", "precio": 3.50, "img": "https://images.unsplash.com/photo-1581006852262-e430761e1b1d?w=500"},
+    "Gaseosa sprite": {"peso": "1500 ml", "precio": 6.50, "img": "https://images.unsplash.com/photo-1605276374104-de2a07e155b9?w=500"},
+    "Galletas oreo": {"peso": "432 gr", "precio": 8.20, "img": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=500"},
+    "Mayonesa": {"peso": "190 gr", "precio": 5.80, "img": "https://images.unsplash.com/photo-1617347454431-f19d7d420f18?w=500"},
+    "Mantequilla Laive": {"peso": "200 gr", "precio": 7.50, "img": "https://images.unsplash.com/photo-1589985270826-c373e5190c29?w=500"},
+    "Café Ecco": {"peso": "80 gr", "precio": 8.50, "img": "https://images.unsplash.com/photo-1507133750040-4a8f570e1b73?w=500"},
+    "Café Altomayo": {"peso": "170 gr", "precio": 25.10, "img": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500"},
+    "Leche Fresca Gloria": {"peso": "946 ml", "precio": 5.80, "img": "https://images.unsplash.com/photo-1563636619089-13725591350a?w=500"},
+    "Duraznos en almibar": {"peso": "820 gr", "precio": 9.70, "img": "https://images.unsplash.com/photo-1613919030630-f86447819e61?w=500"},
+    "Gaseosa Guarana": {"peso": "450 ml", "precio": 2.00, "img": "https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=500"},
+    "Pan Chabata": {"peso": "6 unidades", "precio": 3.50, "img": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=500"},
+    "Cifrut": {"peso": "500 ml", "precio": 2.00, "img": "https://images.unsplash.com/photo-1596464593237-77817441551a?w=500"},
+    "Helado de vainilla": {"peso": "1000 ml", "precio": 14.50, "img": "https://images.unsplash.com/photo-1565958011703-44f988881656?w=500"},
+    "Chocolate Vizio": {"peso": "63 gr", "precio": 4.20, "img": "https://images.unsplash.com/photo-1511381939415-e440154668b1?w=500"},
+    "Cereales Angel Chocolate": {"peso": "250 gr", "precio": 6.50, "img": "https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=500"},
+    "Cereales Angel Maiz": {"peso": "1000 gr", "precio": 14.50, "img": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500"}
 }
-
 index_html = """
 <!DOCTYPE html>
 <html lang="es">
