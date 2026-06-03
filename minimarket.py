@@ -177,7 +177,7 @@ productos_html = """
                 <span>Total:</span>
                 <span>S/.{{ "%.2f"|format(total) }}</span>
             </div>
-            <a href="/vaciar" class="btn-vaciar">Vaciar Carrito</a>
+            <a href="/vaciar" class="btn-vaciar">Hacer compra</a>
             {% endif %}
         </aside>
     </main>
