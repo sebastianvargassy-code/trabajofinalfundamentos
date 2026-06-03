@@ -108,17 +108,17 @@ productos_html = """
         .boton-compra:hover { background-color: #6d4b2a; }
 
         /* Columna Derecha: Carrito Estático Lateral Fijo */
-        .carrito-estatico { width: 340px; background-color: white; border: 1px solid #e2f3f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 20px; }
+        .carrito-estatico { width: 340px; background-color: white; border: 10px solid #e2f3f0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 20px; }
         .carrito-estatico h2 { font-size: 18px; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid lightsalmon; color: #5a3907; }
         .lista-carrito { max-height: 350px; overflow-y: auto; margin-bottom: 15px; }
         .item-carrito { display: flex; justify-content: space-between; align-items: center; font-size: 13px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
         .item-info p { color: #6a5a50; font-size: 11px; }
-        .item-derecha { display: flex; align-items: center; gap: 10px; }
+        .item-derecha { display: flex; align-items: justify; gap: 10px; }
         .btn-quitar { color: #ccc; text-decoration: none; font-size: 16px; font-weight: bold; transition: color 0.2s; padding: 0 4px; }
         .btn-quitar:hover { color: #d9534f; }
         
         .total-carrito { display: flex; justify-content: space-between; font-size: 16px; font-weight: bold; padding-top: 10px; border-top: 1px solid #eee; }
-        .btn-vaciar { display: block; text-align: center; background-color: #d9534f; color: white; text-decoration: none; padding: 10px; border-radius: 6px; font-size: 13px; margin-top: 15px; font-weight: bold; }
+        .btn-vaciar { display: block; text-align: center; background-color: #d9534f; color: white; text-decoration: none; padding: 30px; border-radius: 6px; font-size: 13px; margin-top: 15px; font-weight: bold; }
         .btn-vaciar:hover { background-color: #c9302c; }
         .carrito-vacio { text-align: center; color: #999; font-size: 13px; padding: 20px 0; }
 
