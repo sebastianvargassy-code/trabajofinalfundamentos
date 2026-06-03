@@ -6,46 +6,206 @@ app.secret_key = 'clave'
 
 
 PRODUCTOS_DATOS = {
-    "Galleta soda": {"peso": "6 unidades (222 gr)", "precio": 3.30, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26993139-512-512/516246.jpg"},
-    "Coca Cola": {"peso": "500 ml", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26778945-512-512/170366.jpg"},
-    "Leche Gloria": {"peso": "390 gr", "precio": 4.20, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330623-512-512/549174.jpg"},
-    "Yogurt Laive": {"peso": "1000 gr", "precio": 6.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330669-512-512/115501.jpg"},
-    "Pan en bolsa": {"peso": "500 gr", "precio": 8.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/27339105-512-512/918195.jpg"},
-    "Galletas de vainilla": {"peso": "6 unidades (222 gr)", "precio": 4.70, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26993116-512-512/511520.jpg"},
-    "Atún en lata": {"peso": "140 gr", "precio": 5.80, "img": "https://plazavea.vteximg.com.br/arquivos/ids/32338166-512-512/20121764.jpg"},
-    "Café Kirma": {"peso": "180 gr", "precio": 21.90, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330628-512-512/359929.jpg"},
-    "Huevos": {"peso": "15 unidades", "precio": 9.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/511942-512-512/20147614.jpg"},
-    "Chocolate Triangulo": {"peso": "30 gr", "precio": 2.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330635-512-512/575344.jpg"},
-    "Gaseosa KR": {"peso": "1500 ml", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/561005-512-512/20136696.jpg"},
-    "Gaseosa sprite": {"peso": "1500 ml", "precio": 6.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26779432-512-512/358217.jpg"},
-    "Galletas oreo": {"peso": "432 gr", "precio": 8.20, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26992994-512-512/570119.jpg"},
-    "Mayonesa": {"peso": "190 gr", "precio": 5.80, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330654-512-512/20067645.jpg"},
-    "Mermelada": {"peso": "320 gr", "precio": 5.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/15002680-512-512/20282938.jpg"},
-    "Jamón San Fernando": {"peso": "200 gr", "precio": 9.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/22086888-512-512/20200730.jpg"},
-    "Margarina Manti": {"peso": "225 gr", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237060-512-512/20042468.jpg"},
-    "Mantequilla Laive": {"peso": "200 gr", "precio": 7.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330639-512-512/653066.jpg"},
-    "Café Ecco": {"peso": "80 gr", "precio": 8.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330629-512-512/361844.jpg"},
-    "Café Altomayo": {"peso": "170 gr", "precio": 25.10, "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237096-512-512/20054770.jpg"},
-    "Leche Fresca Gloria": {"peso": "946 ml", "precio": 5.80, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26915228-512-512/20072049.jpg"},
-    "Leche sin lactosa Laive": {"peso": "1000 ml", "precio": 5.20, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330641-512-512/692095.jpg"},
-    "Duraznos en almibar": {"peso": "820 gr", "precio": 9.70, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330650-512-512/803479.jpg"},
-    "Gaseosa Guarana": {"peso": "450 ml", "precio": 2.00, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815354-512-512/636255.jpg"},
-    "Pan Chabata": {"peso": "6 unidades", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/477464-512-512/20128911.jpg"},
-    "Pan caracol": {"peso": "6 unidades", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/477466-512-512/20128913.jpg"},
-    "Pan Francés": {"peso": "6 unidades", "precio": 2.40, "img": "https://plazavea.vteximg.com.br/arquivos/ids/477463-512-512/20128910.jpg"},
-    "Gaseosa Concordia": {"peso": "1500 ml", "precio": 4.00, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815357-512-512/720214.jpg"},
-    "Cifrut": {"peso": "500 ml", "precio": 2.00, "img": "https://plazavea.vteximg.com.br/arquivos/ids/561021-512-512/20042456.jpg"},
-    "Pulp": {"peso": "1000 ml", "precio": 4.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/31888408-512-512/20506323.jpg"},
-    "Yopimix": {"peso": "125 gr", "precio": 2.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330671-512-512/20099804.jpg"},
-    "Helado de vainilla": {"peso": "1000 ml", "precio": 14.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884631-512-512/20392577.jpg"},
-    "Helado de fresa": {"peso": "1000 ml", "precio": 14.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884625-512-512/20392571.jpg"},
-    "Queso Chedar": {"peso": "170 gr", "precio": 8.40, "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330643-512-512/707121.jpg"},
-    "Chocolate Vizio": {"peso": "63 gr", "precio": 4.20, "img": "https://plazavea.vteximg.com.br/arquivos/ids/22903260-512-512/20042797.jpg"},
-    "Galleta rellenitas": {"peso": "6 unidades", "precio": 3.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/1359676-512-512/20120281.jpg"},
-    "Cereales Angel Chocolate": {"peso": "250 gr", "precio": 6.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/17393278-512-512/572520.jpg"},
-    "Cereales Angel Maiz": {"peso": "1000 gr", "precio": 14.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26966604-512-512/570766.jpg"},
-    "Avena": {"peso": "900 gr", "precio": 9.30, "img": "https://plazavea.vteximg.com.br/arquivos/ids/26050246-512-512/20278377.jpg"},
-    "Chicle trident": {"peso": "5 unidades", "precio": 1.50, "img": "https://plazavea.vteximg.com.br/arquivos/ids/30212887-512-512/20236543.jpg"}
+    "Galleta soda": {
+        "peso": "6 unidades (222 gr)", 
+        "precio": 3.30, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26993139-512-512/516246.jpg?v=638542371873770000"
+    },
+    "Coca Cola": {
+        "peso": "500 ml", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26778945-512-512/170366.jpg?v=638542371873770000"
+    },
+    "Leche Gloria": {
+        "peso": "390 gr", 
+        "precio": 4.20, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34362774-512-512/20402646.jpg?v=639125062972570000"
+    },
+    "Yogurt Laive": {
+        "peso": "1000 gr", 
+        "precio": 6.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330669-512-512/115501.jpg?v=639125062972570000"
+    },
+    "Pan en bolsa": {
+        "peso": "500 gr", 
+        "precio": 8.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27339105-512-512/918195.jpg?v=638542371873770000"
+    },
+    "Galletas de vainilla": {
+        "peso": "6 unidades (222 gr)", 
+        "precio": 4.70, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26993116-512-512/511520.jpg?v=638542371873770000"
+    },
+    "Atún en lata": {
+        "peso": "140 gr", 
+        "precio": 5.80, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/32338166-512-512/20121764.jpg?v=638542371873770000"
+    },
+    "Café Kirma": {
+        "peso": "180 gr", 
+        "precio": 21.90, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330628-512-512/359929.jpg?v=638542371873770000"
+    },
+    "Huevos": {
+        "peso": "15 unidades", 
+        "precio": 9.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/511942-512-512/20147614.jpg?v=638542371873770000"
+    },
+    "Chocolate Triangulo": {
+        "peso": "30 gr", 
+        "precio": 2.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330635-512-512/575344.jpg?v=638542371873770000"
+    },
+    "Gaseosa KR": {
+        "peso": "1500 ml", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/561005-512-512/20136696.jpg?v=638542371873770000"
+    },
+    "Gaseosa sprite": {
+        "peso": "1500 ml", 
+        "precio": 6.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26779432-512-512/358217.jpg?v=638542371873770000"
+    },
+    "Galletas oreo": {
+        "peso": "432 gr", 
+        "precio": 8.20, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26992994-512-512/570119.jpg?v=638542371873770000"
+    },
+    "Mayonesa": {
+        "peso": "190 gr", 
+        "precio": 5.80, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330654-512-512/20067645.jpg?v=638542371873770000"
+    },
+    "Mermelada": {
+        "peso": "320 gr", 
+        "precio": 5.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/15002680-512-512/20282938.jpg?v=638542371873770000"
+    },
+    "Jamón San Fernando": {
+        "peso": "200 gr", 
+        "precio": 9.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/22086888-512-512/20200730.jpg?v=638542371873770000"
+    },
+    "Margarina Manti": {
+        "peso": "225 gr", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237060-512-512/20042468.jpg?v=638542371873770000"
+    },
+    "Mantequilla Laive": {
+        "peso": "200 gr", 
+        "precio": 7.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330639-512-512/653066.jpg?v=638542371873770000"
+    },
+    "Café Ecco": {
+        "peso": "80 gr", 
+        "precio": 8.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330629-512-512/361844.jpg?v=638542371873770000"
+    },
+    "Café Altomayo": {
+        "peso": "170 gr", 
+        "precio": 25.10, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/27237096-512-512/20054770.jpg?v=638542371873770000"
+    },
+    "Leche Fresca Gloria": {
+        "peso": "946 ml", 
+        "precio": 5.80, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26915228-512-512/20072049.jpg?v=638542371873770000"
+    },
+    "Leche sin lactosa Laive": {
+        "peso": "1000 ml", 
+        "precio": 5.20, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330641-512-512/692095.jpg?v=638542371873770000"
+    },
+    "Duraznos en almibar": {
+        "peso": "820 gr", 
+        "precio": 9.70, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330650-512-512/803479.jpg?v=638542371873770000"
+    },
+    "Gaseosa Guarana": {
+        "peso": "450 ml", 
+        "precio": 2.00, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815354-512-512/636255.jpg?v=638542371873770000"
+    },
+    "Pan Chabata": {
+        "peso": "6 unidades", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477464-512-512/20128911.jpg?v=638542371873770000"
+    },
+    "Pan caracol": {
+        "peso": "6 unidades", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477466-512-512/20128913.jpg?v=638542371873770000"
+    },
+    "Pan Francés": {
+        "peso": "6 unidades", 
+        "precio": 2.40, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/477463-512-512/20128910.jpg?v=638542371873770000"
+    },
+    "Gaseosa Concordia": {
+        "peso": "1500 ml", 
+        "precio": 4.00, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26815357-512-512/720214.jpg?v=638542371873770000"
+    },
+    "Cifrut": {
+        "peso": "500 ml", 
+        "precio": 2.00, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/561021-512-512/20042456.jpg?v=638542371873770000"
+    },
+    "Pulp": {
+        "peso": "1000 ml", 
+        "precio": 4.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/31888408-512-512/20506323.jpg?v=638542371873770000"
+    },
+    "Yopimix": {
+        "peso": "125 gr", 
+        "precio": 2.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330671-512-512/20099804.jpg?v=638542371873770000"
+    },
+    "Helado de vainilla": {
+        "peso": "1000 ml", 
+        "precio": 14.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884631-512-512/20392577.jpg?v=638542371873770000"
+    },
+    "Helado de fresa": {
+        "peso": "1000 ml", 
+        "precio": 14.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/28884625-512-512/20392571.jpg?v=638542371873770000"
+    },
+    "Queso Chedar": {
+        "peso": "170 gr", 
+        "precio": 8.40, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/34330643-512-512/707121.jpg?v=638542371873770000"
+    },
+    "Chocolate Vizio": {
+        "peso": "63 gr", 
+        "precio": 4.20, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/22903260-512-512/20042797.jpg?v=638542371873770000"
+    },
+    "Galleta rellenitas": {
+        "peso": "6 unidades", 
+        "precio": 3.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/1359676-512-512/20120281.jpg?v=638542371873770000"
+    },
+    "Cereales Angel Chocolate": {
+        "peso": "250 gr", 
+        "precio": 6.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/17393278-512-512/572520.jpg?v=638542371873770000"
+    },
+    "Cereales Angel Maiz": {
+        "peso": "1000 gr", 
+        "precio": 14.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26966604-512-512/570766.jpg?v=638542371873770000"
+    },
+    "Avena": {
+        "peso": "900 gr", 
+        "precio": 9.30, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/26050246-512-512/20278377.jpg?v=638542371873770000"
+    },
+    "Chicle trident": {
+        "peso": "5 unidades", 
+        "precio": 1.50, 
+        "img": "https://plazavea.vteximg.com.br/arquivos/ids/30212887-512-512/20236543.jpg?v=638542371873770000"
+    }
 }
 
 index_html = """
@@ -88,6 +248,7 @@ index_html = """
             <ul>
                 <li><a href="/">Inicio</a></li>
                 <li><a href="/productos">Productos</a></li>
+                <li><a href="/contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -224,7 +385,69 @@ productos_html = """
 </body>
 </html>
 """
+contacto_html = """
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimarket Nelly - Contacto</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f7f5f0; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: #5a3907; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        header h1 { color: #d4c196; font-size: 24px; font-weight: bold; }
+        nav ul { display: flex; gap: 20px; list-style: none; }
+        nav a { color: #f7f5f0; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+        nav a:hover, nav li:nth-child(3) a { color: #d4c196; }
 
+        .contenedor-contacto { max-width: 600px; width: 90%; margin: 60px auto; background-color: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 40px; border-top: 5px solid #5a3907; text-align: center; }
+        .contenedor-contacto h2 { color: #5a3907; font-size: 28px; margin-bottom: 20px; }
+        
+        .info-seccion { margin-top: 30px; }
+        .info-item { margin-bottom: 25px; }
+        .info-item h4 { color: #5a3907; font-size: 16px; margin-bottom: 8px; text-transform: uppercase; }
+        .info-item p { color: #555; font-size: 15px; line-height: 1.6; }
+
+        footer { background-color: #362204; color: #a89c84; text-align: center; padding: 20px 0; margin-top: auto; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minimarket Nelly</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/productos">Productos</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="display: flex; flex-direction: column; flex-grow: 1;">
+        <section class="contenedor-contacto">
+            <h2>Información de Contacto</h2>
+            <div class="info-seccion">
+                <div class="info-item">
+                    <h4>Nuestra Ubicación</h4>
+                    <p>c.8 Bayovar, Sjl,Lima, Perú</p>
+                </div>
+                <div class="info-item">
+                    <h4> Horario de Atención</h4>
+                    <p>Lunes a Sábado: 7:00 AM - 10:00 PM<br>Domingos: 8:00 AM - 2:00 PM</p>
+                </div>
+                <div class="info-item">
+                    <h4> Teléfono</h4>
+                    <p>+51 935206954</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>&copy; 2026 Minimarket Nelly. Todos los derechos reservados.</p></footer>
+</body>
+</html>
+"""
 @app.route('/')
 def index():
     return render_template_string(index_html)
@@ -259,7 +482,9 @@ def agregar(nombre):
         session['carrito'] = carrito
         session.modified = True
     return redirect(url_for('productos'))
-
+@app.route('/contacto')
+def contacto():
+    return render_template_string(contacto_html)
 @app.route('/quitar/<item_id>')
 def quitar(item_id):
     carrito = session.get('carrito', {})
