@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, redirect, url_for, session
+from flask import Flask, render_template_string, redirect, url_for, session, request
 import uuid
 
 app = Flask(__name__)
@@ -64,6 +64,20 @@ index_html = """
             <div class="intro-text">
                 <h2>Siempre a tu disposición</h2>
                 <p>Acercamos productos de calidad para su consumo en el hogar, de calidad, frescos y a precios competitivos.</p>
+                {% if not session.get('usuario') %}
+    <form action="/guardar_usuario" method="POST" style="margin-bottom: 20px;">
+        <input type="text" name="usuario" placeholder="Ingresa tu nombre" required style="padding: 10px; border-radius: 5px; border: none;">
+        <button type="submit" style="padding: 10px 20px; background-color: #d4c196; border: none; border-radius: 5px; cursor: pointer;">Guardar</button>
+    </form>
+{% else %}
+    <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+        <p>Hola, <strong>{{ session['usuario'] }}</strong></p>
+        <form action="/actualizar_usuario" method="POST" style="margin-top: 10px;">
+            <input type="text" name="nuevo_nombre" placeholder="Nuevo nombre" required style="padding: 5px;">
+            <button type="submit" style="padding: 5px 10px; cursor: pointer;">Actualizar</button>
+        </form>
+    </div>
+{% endif %}
                 <a href="/productos" class="btn-ver-productos">Ver Productos</a>
             </div>
             <div class="intro-img-container">
@@ -254,7 +268,17 @@ contacto_html = """
 @app.route('/')
 def index():
     return render_template_string(index_html)
+@app.route('/guardar_usuario', methods=['POST'])
+def guardar_usuario():
+    # CREATE/UPDATE: Guarda el nombre en la sesión
+    session['usuario'] = request.form.get('usuario')
+    return redirect(url_for('index'))
 
+@app.route('/eliminar_usuario')
+def eliminar_usuario():
+    # DELETE: Borra el nombre de la sesión
+    session.pop('usuario', None)
+    return redirect(url_for('index'))
 @app.route('/productos')
 def productos():
     carrito = session.get('carrito', {})
