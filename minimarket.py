@@ -159,7 +159,10 @@ productos_html = """
                 </div>
                 <div class="compra-producto">
                     <span class="precio">S/.{{ "%.2f"|format(data.precio) }}</span>
-                    <a href="/agregar/{{ nombre }}" class="boton-compra">Añadir</a>
+                   <form method="POST" action="/agregar">
+    <input type="hidden" name="nombre_producto" value="{{ nombre }}">
+    <button type="submit" class="boton-compra">Añadir</button>
+</form>
                 </div>
             </article>
             {% endfor %}
@@ -191,7 +194,10 @@ productos_html = """
                 <span>Total:</span>
                 <span>S/.{{ "%.2f"|format(total) }}</span>
             </div>
-            <a href="/vaciar" class="btn-vaciar">Hacer compra</a>
+          <form method="POST" action="/agregar">
+    <input type="hidden" name="nombre_producto" value="{{ nombre }}">
+    <button type="submit" class="boton-compra">Añadir</button>
+</form>
             {% endif %}
         </aside>
     </main>
@@ -266,65 +272,120 @@ contacto_html = """
 </html>
 """
 @app.route('/')
+@app.route('/')
 def index():
+    """Página de inicio."""
     return render_template_string(index_html)
-@app.route('/guardar_usuario', methods=['POST'])
-def guardar_usuario():
-    # CREATE/UPDATE: Guarda el nombre en la sesión
-    session['usuario'] = request.form.get('usuario')
-    return redirect(url_for('index'))
 
-@app.route('/eliminar_usuario')
-def eliminar_usuario():
-    # DELETE: Borra el nombre de la sesión
-    session.pop('usuario', None)
-    return redirect(url_for('index'))
 @app.route('/productos')
 def productos():
+    """Muestra todos los productos y el carrito actual."""
     carrito = session.get('carrito', {})
     total = sum(item['precio'] * item['cantidad'] for item in carrito.values())
     return render_template_string(productos_html, productos=PRODUCTOS_DATOS, total=total)
 
-@app.route('/agregar/<nombre>')
-def agregar(nombre):
-    if nombre in PRODUCTOS_DATOS:
-        carrito = session.get('carrito', {})
-        
-     
-        encontrado = False
-        for item_id, item in carrito.items():
-            if item['nombre'] == nombre:
-                item['cantidad'] += 1
-                encontrado = True
-                break
-                
-        if not encontrado:
-            nuevo_id = str(uuid.uuid4())
-            carrito[nuevo_id] = {
-                'nombre': nombre,
-                'precio': PRODUCTOS_DATOS[nombre]['precio'],
-                'cantidad': 1
-            }
-            
-        session['carrito'] = carrito
-        session.modified = True
-    return redirect(url_for('productos'))
 @app.route('/contacto')
 def contacto():
+    """Página de contacto."""
     return render_template_string(contacto_html)
-@app.route('/quitar/<item_id>')
+
+# ==================== CRUD de USUARIO (sesión) ====================
+
+@app.route('/guardar_usuario', methods=['POST'])
+def guardar_usuario():
+    """Crea o guarda el nombre de usuario en la sesión."""
+    nombre = request.form.get('usuario', '').strip()
+    if not nombre:
+        flash('El nombre de usuario no puede estar vacío.', 'error')
+    elif len(nombre) > 50:
+        flash('El nombre es demasiado largo (máximo 50 caracteres).', 'error')
+    else:
+        session['usuario'] = nombre
+        flash(f'¡Bienvenido, {nombre}!', 'success')
+    return redirect(url_for('index'))
+
+@app.route('/actualizar_usuario', methods=['POST'])
+def actualizar_usuario():
+    """Actualiza el nombre de usuario existente."""
+    if 'usuario' not in session:
+        flash('No hay una sesión activa para actualizar.', 'error')
+        return redirect(url_for('index'))
+    
+    nuevo_nombre = request.form.get('nuevo_nombre', '').strip()
+    if not nuevo_nombre:
+        flash('El nuevo nombre no puede estar vacío.', 'error')
+    elif len(nuevo_nombre) > 50:
+        flash('El nombre es demasiado largo (máximo 50 caracteres).', 'error')
+    else:
+        session['usuario'] = nuevo_nombre
+        flash(f'Nombre actualizado a {nuevo_nombre}', 'success')
+    return redirect(url_for('index'))
+
+@app.route('/eliminar_usuario', methods=['POST'])
+def eliminar_usuario():
+    """Elimina el nombre de usuario de la sesión."""
+    if 'usuario' in session:
+        session.pop('usuario', None)
+        flash('Has cerrado sesión correctamente.', 'info')
+    else:
+        flash('No había una sesión activa.', 'warning')
+    return redirect(url_for('index'))
+
+# ==================== CRUD del CARRITO ====================
+
+@app.route('/agregar', methods=['POST'])
+def agregar():
+    """Agrega un producto al carrito (o incrementa su cantidad)."""
+    nombre = request.form.get('nombre_producto')
+    if not nombre or nombre not in PRODUCTOS_DATOS:
+        flash('Producto no disponible o inválido.', 'error')
+        return redirect(url_for('productos'))
+    
+    carrito = session.get('carrito', {})
+    
+    # Buscar si ya existe el producto en el carrito
+    encontrado = False
+    for item_id, item in carrito.items():
+        if item['nombre'] == nombre:
+            item['cantidad'] += 1
+            encontrado = True
+            break
+    
+    if not encontrado:
+        nuevo_id = str(uuid.uuid4())
+        carrito[nuevo_id] = {
+            'nombre': nombre,
+            'precio': PRODUCTOS_DATOS[nombre]['precio'],
+            'cantidad': 1
+        }
+    
+    session['carrito'] = carrito
+    session.modified = True
+    flash(f'Se añadió {nombre} al carrito.', 'success')
+    return redirect(url_for('productos'))
+
+@app.route('/quitar/<item_id>', methods=['POST'])
 def quitar(item_id):
+    """Elimina un ítem específico del carrito."""
     carrito = session.get('carrito', {})
     if item_id in carrito:
+        nombre_item = carrito[item_id]['nombre']
         carrito.pop(item_id)
         session['carrito'] = carrito
         session.modified = True
+        flash(f'Se eliminó {nombre_item} del carrito.', 'info')
+    else:
+        flash('El ítem no existe en el carrito.', 'warning')
     return redirect(url_for('productos'))
 
-@app.route('/vaciar')
+@app.route('/vaciar', methods=['POST'])
 def vaciar():
-    session.pop('carrito', None)
+    """Vacía completamente el carrito de compras."""
+    if session.get('carrito'):
+        session.pop('carrito', None)
+        flash('Carrito vaciado correctamente.', 'info')
+    else:
+        flash('El carrito ya estaba vacío.', 'warning')
     return redirect(url_for('productos'))
-
 if __name__ == '__main__':
     app.run(debug=True)
