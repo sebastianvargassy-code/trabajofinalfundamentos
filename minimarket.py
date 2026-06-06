@@ -1,4 +1,4 @@
-from flask import Flask, render_template_string, redirect, url_for, session, request
+from flask import Flask, render_template_string, redirect, url_for, session, request, flash
 import uuid
 
 app = Flask(__name__)
@@ -49,6 +49,13 @@ index_html = """
     </style>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <header>
         <h1>Minimarket Nelly</h1>
         <nav>
@@ -77,6 +84,9 @@ index_html = """
             <button type="submit" style="padding: 5px 10px; cursor: pointer;">Actualizar</button>
         </form>
     </div>
+    <form method="POST" action="/eliminar_usuario" style="margin-top: 10px;">
+    <button type="submit">Cerrar sesión</button>
+</form>
 {% endif %}
                 <a href="/productos" class="btn-ver-productos">Ver Productos</a>
             </div>
@@ -142,7 +152,13 @@ productos_html = """
     </style>
 </head>
 <body>
-
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <header>
         <h1>Nuestros Productos</h1>
         <a class="nav-link" href="/">← Volver al Inicio</a>
@@ -169,37 +185,38 @@ productos_html = """
         </div>
 
         <aside class="carrito-estatico">
-            <h2>Tu Carrito</h2>
-            <div class="lista-carrito">
-                {% if session.get('carrito') %}
-                    {% for item_id, item in session['carrito'].items() %}
-                    <div class="item-carrito">
-                        <div class="item-info">
-                            <strong>{{ item.nombre }}</strong>
-                            <p>Cant: {{ item.cantidad }} (S/.{{ "%.2f"|format(item.precio) }} c/u)</p>
-                        </div>
-                        <div class="item-derecha">
-                            <span>S/.{{ "%.2f"|format(item.precio * item.cantidad) }}</span>
-                            <a href="/quitar/{{ item_id }}" class="btn-quitar" title="Eliminar producto">✕</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="carrito-vacio">El carrito está vacío.</div>
-                {% endif %}
+    <h2>Tu Carrito</h2>
+    <div class="lista-carrito">
+        {% if session.get('carrito') %}
+            {% for item_id, item in session['carrito'].items() %}
+            <div class="item-carrito">
+                <div class="item-info">
+                    <strong>{{ item.nombre }}</strong>
+                    <p>Cant: {{ item.cantidad }} (S/.{{ "%.2f"|format(item.precio) }} c/u)</p>
+                </div>
+                <div class="item-derecha">
+                    <span>S/.{{ "%.2f"|format(item.precio * item.cantidad) }}</span>
+                    <form method="POST" action="/quitar/{{ item_id }}" style="display: inline;">
+                        <button type="submit" class="btn-quitar" title="Eliminar producto">✕</button>
+                    </form>
+                </div>
             </div>
-            
-            {% if session.get('carrito') %}
-            <div class="total-carrito">
-                <span>Total:</span>
-                <span>S/.{{ "%.2f"|format(total) }}</span>
-            </div>
-          <form method="POST" action="/agregar">
-    <input type="hidden" name="nombre_producto" value="{{ nombre }}">
-    <button type="submit" class="boton-compra">Añadir</button>
-</form>
-            {% endif %}
-        </aside>
+            {% endfor %}
+        {% else %}
+            <div class="carrito-vacio">El carrito está vacío.</div>
+        {% endif %}
+    </div>
+    
+    {% if session.get('carrito') %}
+    <div class="total-carrito">
+        <span>Total:</span>
+        <span>S/.{{ "%.2f"|format(total) }}</span>
+    </div>
+    <form method="POST" action="/vaciar">
+        <button type="submit" class="btn-vaciar">Hacer compra</button>
+    </form>
+    {% endif %}
+</aside>
     </main>
 
     <footer>
@@ -208,6 +225,7 @@ productos_html = """
 </body>
 </html>
 """
+
 contacto_html = """
 <!DOCTYPE html>
 <html lang="es">
@@ -236,6 +254,13 @@ contacto_html = """
     </style>
 </head>
 <body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
     <header>
         <h1>Minimarket Nelly</h1>
         <nav>
@@ -271,7 +296,6 @@ contacto_html = """
 </body>
 </html>
 """
-@app.route('/')
 @app.route('/')
 def index():
     """Página de inicio."""
@@ -387,5 +411,6 @@ def vaciar():
     else:
         flash('El carrito ya estaba vacío.', 'warning')
     return redirect(url_for('productos'))
+
 if __name__ == '__main__':
     app.run(debug=True)
